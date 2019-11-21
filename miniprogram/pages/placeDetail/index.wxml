@@ -1,52 +1,52 @@
 <!--pages/placeDetail/index.wxml-->
 <!-- <topbar-cmp placeName="{{placeName}}"></topbar-cmp> -->
 <view class="title">场馆详情</view>
-<image class="banner" src="/images/place1.jpg" style="width: 750rpx;height:375rpx;"></image>
+<image class="banner" src="{{placeData.business_imgURL}}" style="width: 750rpx;height:375rpx;"></image>
 <view class="content">
-	<view class="main">
-		<view class="placeName">{{placeData.placeName}}</view>
-		<view class="price-box">
-			<text class="price"> <text style="font-size: 24rpx">￥</text>{{placeData.price}}</text>/h
-		</view>
-	</view>
+    <view class="main">
+        <view class="placeName">{{placeData.business_name}}</view>
+        <view class="price-box">
+            <text class="price"> <text style="font-size: 24rpx">￥</text>{{placeData.price}}</text>/h
+        </view>
+    </view>
 
-	<view class="star">评分:{{placeData.grade}}</view>
-	<view class="placeTime">
-		营业时间：{{placeData.placeTime}}
-	</view>
-	<navigator class="pos-class center" url="">
-		<image class="img-pos" src="/images/position-act.png"></image>
-		<text class="text ">{{placeData.address}}</text>
-	</navigator>
-	<image class="phone" src="/images/phone.png" bindtap="phone"></image>
+    <view class="star">评分:{{placeData.score}}</view>
+    <view class="placeTime">
+        营业时间：{{placeData.business_start_time}}~{{placeData.business_end_time}}
+    </view>
+    <navigator class="pos-class center" url="">
+        <image class="img-pos" src="/images/position-act.png"></image>
+        <text class="text">{{placeData.location}}</text>
+    </navigator>
+    <image class="phone" src="/images/phone.png" bindtap="phone"></image>
 </view>
 <view class="item-box">
-	<scrollNav-cmp bind:itemChange="itemChange" itemName="{{itemName}}"></scrollNav-cmp>
-	<block wx:for="{{itemName}}">
-		<scroll-view  scroll-x="true" class="session-box" hidden="{{index==itemNum?false:true}}">
-			<block wx:for="{{item.sessionTime}}" wx:key wx:for-index:="idx" wx:for-item="itm">
-				<navigator class="session" url="/pages/placeBook/index">
-					<view class="">
-						<view class="">
-							{{itm.day}}
-						</view>
-						<view class="">
-							{{itm.time}}
-						</view>
-						<view class="button">
-							预订
-						</view>
-					</view>
-				</navigator>
-			</block>
-		</scroll-view>
-	</block>
 
+    <block wx:for="{{projectData}}" wx:key="{{item.id}}">
+        <view class="session">
+            <view class="left">
+                <view class="session-title">
+                    {{item.project_name}}
+                </view>
+                <view class="session-describe">
+                    {{item.describe}}
+                </view>
+                <view class="session-price">
+                    ￥{{item.price}}
+                    <text style="font-size:24rpx;color:#c9c9c9">/小时</text>
+                </view>
+            </view>
+            <view class="right">	
+				<button data-index="{{index}}" bindtap="book">预订</button>
+            </view>
+        </view>
+    </block>
 </view>
 
 <view class="comment content">
-	<view class="com-title">评论</view>
-	<block wx:for="{{commentData}}" wx:key="{{commentData.cid}}">
-		<comment-cmp commentData="{{item}}"></comment-cmp>
-	</block>
+    <view class="com-title">评论</view>
+    <block wx:for="{{commentData}}" wx:key="{{commentData.cid}}">
+        <comment-cmp commentData="{{item}}"></comment-cmp>
+    </block>
+	<view wx:if="{{commentData.length==0}}">暂无评论</view>
 </view>

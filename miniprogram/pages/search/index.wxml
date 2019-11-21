@@ -15,7 +15,7 @@
         历史记录
     </view>
     <block wx:for="{{his}}" wx:if="{{his[0]}}">
-        <view class="tag">
+        <view class="tag" data-key="{{item}}"bindtap="history">
             {{item}}
         </view>
     </block>

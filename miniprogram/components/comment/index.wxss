@@ -14,11 +14,13 @@
     margin-left: 20rpx;
     padding-bottom: 20rpx; 
     border-bottom: 1px solid #f5f5f5;
+	width: 100%;
 }
 
 .username-box {
     display: flex;
     justify-content: space-between;
+	width: 100%
 }
 
 .username {

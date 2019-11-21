@@ -10,7 +10,23 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      // '/api':{
+      //   target: "http://localhost:3000/api",
+      //   changeOrigin:true,
+      //   pathRewrite:{
+      //       '^/api':''
+      //   }
+      // }
+      '/upload':{
+        changeOrigin: true,
+        secure: false, //https请求需设置此项
+        target: 'http://localhost:3000/api/v2/img/upload',
+        pathRewrite: {
+          '^/upload': ''  
+        }
+      }
+    },  
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

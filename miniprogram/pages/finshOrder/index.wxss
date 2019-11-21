@@ -1,0 +1,4 @@
+/* pages/finshOrder/index.wxss */
+page {
+	height: 100%
+}

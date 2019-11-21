@@ -3,54 +3,93 @@
 
 <view class="container" style="margin-top: {{topbarHeight}}px">
 
-        <view class="page-title">
-            订单详情
+    <view class="page-title">
+        订单详情
+    </view>
+	<toptips-cmp msg="{{error}}" type="error" show="{{telval}}"></toptips-cmp>
+
+    <view class="cu-form-group">
+        <view class="title">手机号码</view>
+        <input type="number" placeholder="请输入手机号" focus="true"  bindblur="getTel" maxlength="11"></input>
+    </view>
+    <view class="message">
+        *该号码用于接受商家发送的订单信息
+    </view>
+    <view class="content">
+        <image class="place-img" src="../../images/place1.jpg">
+
+        </image>
+        <view class="detail">
+            <view class="place-name">
+                {{placeData.business_name}}
+            </view>
+            <view class="pos">
+                {{placeData.location}}
+            </view>
+			<view class="project">
+				预订项目：{{projectData.project_name}}
+			</view>
         </view>
+    </view>
+
+    <view class="order">
         <view class="cu-form-group">
-                <view class="title">手机号码</view>
-                <input type="number" placeholder="请输入手机号" auto-focus="true"></input>
-        </view>
-        <view class="message">
-            *该号码用于接受商家发送的订单信息
-        </view>
-        <view class="content">
-            <image class="place-img" src="../../images/place1.jpg">
-                
-            </image>
-            <view class="detail">
-                <view class="place-name">
-                    这是店名
+            <view class="title">预订日期</view>
+            <picker mode="date" value="{{date}}" start="{{startTime}}" end="{{endTime}}" bindchange="DateChange">
+                <view class="picker">
+                    {{date}}
                 </view>
-                <view class="pos">
-                    这是一个地址
+            </picker>
+        </view>
+    </view>
+    <view class="order" style="border-top:none">
+        <view class="cu-form-group">
+            <view class="title">预订时长</view>
+            <picker mode="selector" value="{{hour}}" range="{{hourArr}}" bindchange="HourChange">
+                <view class="picker">
+                    {{hour}}
                 </view>
-            </view>
+            </picker>
         </view>
+    </view>
 
-        <view class="order">
-            <view class="order-time">
-                10月1日 周五
-            </view>
-            <view class="total" wx:for="{{2}}">
-                1号场 10：00-11：00 ￥36
-            </view>
+    <view class="price-box">
+        <view class="title">
+            产品单价
         </view>
-
-        <view class="price-box">
-            <view class="title">
-                订单总价
-            </view>
-            <view class="price">
-                ￥72
-            </view>
+        <view class="price">
+            ￥{{projectData.price}}
         </view>
+    </view>
 
-        <view class="book-bottom">
-                <view class="price">
-                    <view class="small">合计:</view>￥{{total}}
-                </view>
-                <navigator class="btn" target="" url="">
-                   立即下单
-                </navigator>
-            </view>
+    <view class="book-bottom">
+        <view class="price">
+            <view class="small">合计:</view>
+            <view>￥{{total}}</view>
+        </view>
+        <view class="btn" bindtap="showModal" data-target="DialogModal1">
+            立即下单
+        </view>
+    </view>
+
+   <view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">请确认手机号</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      {{telphone}}
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="finshOrder">确定</button>
+
+      </view>
+    </view>
+  </view>
+</view>
 </view>

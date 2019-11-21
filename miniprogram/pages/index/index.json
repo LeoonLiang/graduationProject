@@ -3,6 +3,6 @@
     "pos-cmp":"/components/mainPosition/index",
     "search-cmp":"/components/search/index",
     "classif-cmp":"/components/classif/index",
-    "place-cmp":"/components/place/index"
+    "recommendedList-cmp":"/components/recommendedList/index"
   }
 }

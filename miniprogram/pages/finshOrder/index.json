@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+	  "msg-cmp":"/components/msg/msg"
+  }
+}

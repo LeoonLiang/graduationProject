@@ -99,7 +99,7 @@ export default {
               }
               this.priceData[index - 1].periodTime = this.priceData[index - 1].startTime + "~" + this.priceData[index - 1].endTime;
             }
-            if (index < 2) {
+            if (index < this.priceData.length-1) {
               let nextTime = parseInt(this.priceData[index + 1].startTime);
       
               //时间段矫正
@@ -163,6 +163,7 @@ export default {
           periodTime: this.addPeriodData.startTime + "~" + this.addPeriodData.endTime,
           day: arr
         })
+        // this.addPeriodData=null
         this.addPeriodVisible = false;
       }else {
         this.$message("哎呦，是不是有的忘填了")
@@ -189,7 +190,6 @@ export default {
           type: 'success',
           message: '删除成功!'
         });
-        console.log(this.priceData)
       }).catch(() => {
         this.$message({
           type: 'info',

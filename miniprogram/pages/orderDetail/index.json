@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "topbar-cmp":"/components/topbar/index"
+    "topbar-cmp":"/components/topbar/index",
+	"toptips-cmp":"/components/toptips/toptips"
   },
   "navigationStyle": "custom"
 

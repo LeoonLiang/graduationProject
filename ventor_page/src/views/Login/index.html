@@ -1,3 +1,27 @@
-<div class="login-box">
-    这里是login
-</div>
+<div class="login">
+        <!--
+          el-form 表示使用了 表单组件
+    
+          ref 在vue中是一个特殊的属性，给组件或者HTML元素添加该属性后，
+          可以在 js 中通过 this.$refs.loginForm 来获取到当前组件或这DOM对象
+        -->
+        <el-form class="login-form" ref="loginForm" :model="loginForm" label-width="80px" :rules="rules" :label-position="labelPosition">
+          <!--
+            el-form-item 是表单元素中的一行
+            label 表示当前行的文字提示
+    
+            prop 是配合 表单校验 的属性
+           -->
+          <el-form-item label="用户名" prop="account">
+            <el-input v-model="loginForm.account"></el-input>
+          </el-form-item>
+          <el-form-item label="密码" prop="password">
+            <!-- 给组件绑定事件的时候，如果发现绑定的事件不生效，那么，可以添加 .native 修饰符 -->
+            <el-input v-model="loginForm.password" type="password" @keyup.enter.native="login"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" @click="login">登录</el-button>
+            <el-button @click="reset">重置</el-button>
+          </el-form-item>
+        </el-form>
+      </div>

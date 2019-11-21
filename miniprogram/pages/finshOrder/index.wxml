@@ -1,0 +1,2 @@
+<!--pages/finshOrder/index.wxml-->
+<msg-cmp type="success" title="下单成功" desc="点击按钮转至订单界面"></msg-cmp>

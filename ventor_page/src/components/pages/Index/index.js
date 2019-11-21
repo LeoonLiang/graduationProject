@@ -1,239 +1,107 @@
 let moment = require("moment");
-moment.locale('zh-cn')
+// moment.locale('zh-cn')
 export default {
     data() {
         return {
-            activeName: 'first',
-            //   businessHours:[],
-            businessStartHours: "8:00",
-            businessEndHours: "21:00",
-            orderData: [
+            baseFormVisible:false,
+            businessData:{
+                business_name:"这是一家店",
+                location:"这是地址",
+                business_start_time:"08:00",
+                business_end_time:"23:00",
+                score:9.5,
+                telphone:"13415638574",
+            },
+            editData:{
+                business_name:"",
+                location:"",
+                business_start_time:"",
+                business_end_time:"",
+                score:null,
+                telphone:"",
+            },
+            orderData:[
                 {
-                    day: "周一",
-                    month: "9月11日",
-                    order: [
-                        {
-                            siteName: "1号场",
-                            priceData: [
-                                {
-                                    starTime: "08:00",
-                                    endTime: "09:00",
-                                    state: 0,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "09:00",
-                                    endTime: "10:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "10:00",
-                                    endTime: "11:00",
-                                    state: 2,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "11:00",
-                                    endTime: "12:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "12:00",
-                                    endTime: "13:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "13:00",
-                                    endTime: "14:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "14:00",
-                                    endTime: "15:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "15:00",
-                                    endTime: "16:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "16:00",
-                                    endTime: "17:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "17:00",
-                                    endTime: "18:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "18:00",
-                                    endTime: "19:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "19:00",
-                                    endTime: "20:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "20:00",
-                                    endTime: "21:00",
-                                    state: 2,
-                                    price: "38"
-                                },
-                            ]
-                        },
-                        {
-                            siteName: "2号场",
-                            priceData: [
-                                {
-                                    starTime: "08:00",
-                                    endTime: "09:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "09:00",
-                                    endTime: "10:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "10:00",
-                                    endTime: "11:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "11:00",
-                                    endTime: "12:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "12:00",
-                                    endTime: "13:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "13:00",
-                                    endTime: "14:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "14:00",
-                                    endTime: "15:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "15:00",
-                                    endTime: "16:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "16:00",
-                                    endTime: "17:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "17:00",
-                                    endTime: "18:00",
-                                    state: 3,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "18:00",
-                                    endTime: "19:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "19:00",
-                                    endTime: "20:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                                {
-                                    starTime: "20:00",
-                                    endTime: "21:00",
-                                    state: 1,
-                                    price: "38"
-                                },
-                            ]
-                        },
-
-                    ]
-
-
+                    order_id:123165113,
+                    nickname:"leoon",
+                    telphone:"13415638574",
+                    project_name:"羽毛球",
+                    price:66,
+                    time_length:4,
+                    date:"2019-08-24 14:00",
+                    type:0
                 },
                 {
-                    day: "周二",
-                    month: "9月12日",
+                    order_id:5623132,
+                    nickname:"某某",
+                    telphone:"134156328574",
+                    project_name:"乒乓球",
+                    price:66,
+                    time_length:4,
+                    date:"2019-11-24 14:00",
+                    type:1
                 }
             ]
         };
     },
     computed: {
-        businessHours: function () {
-
-            let arr = []
-            let end = parseInt(this.businessEndHours);
-            let sta = parseInt(this.businessStartHours);
-            console.log("Sta", sta)
-            console.log("end", end)
-
-            let dif = end - sta;
-            for (let i = 0; i <= dif; i++) {
-                let time = sta + i;
-                time < 10 ? time = '0' + time : time;
-                time = time + ":00"
-                console.log(time)
-                arr.push(time)
-            }
-            return arr;
+        "business_time":function() {
+            return this.businessData.business_start_time+" ~ "+this.businessData.business_end_time
         }
     },
+  
     methods: {
-        handleClick(tab, event) {
-            console.log(tab, event);
-            console.log(moment(Date.now()).format('MM月DD日'))
-        },
-        handleCommand(command) {
-            this.$message('click on item ' + command);
-        },
-        // setBusinessHours (){
-        //     let arr = []
-        //     let sta = parseInt(this.businessEndHours);
-        //     let end = parseInt(this.businessStartHours);
-        //     let dif = end - sta;
-        //     for (let i = 0; i < dif; i++) {
-        //         let time = star + i;
-        //         time<10?time='0'+time:time;
-        //         time = time+":00"
-        //         arr.push[time]
-        //       }
-        //      this.businessHours = JSON.parse(JSON.stringify(arr))
-        //      console.log(this.businessHours)
-        // } 
+        formatter(row,column) {
+            return row.price+" 元"
+          },
+          handleOrder(index,orderData) {
+              if(orderData[index].type==1) {
+                  this.$message({
+                      message:"已经处理过咯",
+                      type:"warning"
+                  })
+                  return
+              }
+              this.$confirm("处理的订单号为"+orderData[index].order_id,"订单处理",{
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+              }).then(()=>{
+                //   发送服务器 
+                this.$message({
+                    type: 'success',
+                    message: '处理成功!'
+                  })
+              }).catch(()=> {
+                this.$message({
+                    type: 'info',
+                    message: '已取消操作'
+                  });    
+              })
+          },
+          handleBase() {
+              this.editData = JSON.parse(JSON.stringify(this.businessData))
+              this.baseFormVisible= true;
+         
+          },
+          async setBase() {
+            this.editData.bid = localStorage.getItem('bid')  
+            const url = "/v2/update/info"
+            const res = await this.$http.post(url,this.editData)
+             this.businessData = JSON.parse(JSON.stringify(this.editData))
+             this.baseFormVisible = false;
+            
+          }
     },
-    created() {
-        //   this.setBusinessHours();
+    async created() {
+        const url = "/v2/get/info"
+        let params = {
+            uid: localStorage.getItem("uid")
+          }
+        const res = await this.$http.get(url,{params})
+        if(res.status===200) {
+            this.businessData = JSON.parse(JSON.stringify(res.data.businessData))
+            localStorage.setItem("bid",res.data.businessData.id)
+        }
     },
 }

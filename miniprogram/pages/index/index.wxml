@@ -34,9 +34,7 @@
     <view class="contentbox">
       <text class="title">场馆推荐</text>
       <view class="placeList">
-        <block wx:for="{{placeData}}" wx:key="pid">
-          <place-cmp placeData="{{item}}"></place-cmp>
-        </block>
+       <recommendedList-cmp location="{{locationString}}"></recommendedList-cmp>
       </view>
     </view>
   </view>

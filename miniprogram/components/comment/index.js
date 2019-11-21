@@ -7,12 +7,7 @@ Component({
 		commentData: {
 			type: Object,
 			value: {
-				cid: 1,
-				headURL: "../images/head1.jpeg",
-				username: "Leoon",
-				time: "6小时前",
-				rate: 4,
-				content: "飒飒的 打撒打的阿萨德阿萨德啊的的 打撒打的阿萨德阿萨德啊的的 打撒打的阿萨德阿萨德啊的"
+				
 			}
 
 		}

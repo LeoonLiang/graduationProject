@@ -1,0 +1,4 @@
+<!--components/recommendedList/index.wxml-->
+<block wx:for="{{placeData}}" wx:key="pid">
+    <place-cmp placeData="{{item}}"></place-cmp>
+  </block>

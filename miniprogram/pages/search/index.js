@@ -1,6 +1,10 @@
 // pages/search/index.js
 import {HistoryModel} from '../../models/history.js'
 const historyModel = new HistoryModel()
+const {
+	HTTP
+} = require('../../util/http')
+var http = new HTTP()
 Page({
 
 	/**
@@ -89,27 +93,46 @@ Page({
 
 	},
 	cancel:function (param) { 
-		console.log(this.data.his)
 		this.setData({
 			searching:false,
 			inputValue:""
 		})
 	 },
 	 search:function (e) {
-		console.log(this.data.his)
-
 		 let word = e.detail.value;
-		 historyModel.addHistory(word);
-		 let his = this.data.his;
-		 his.unshift(word)
-		 this.setData({
-			 searching:true,
-			 his
-		 })
+		 this.listrequest(word)
 	   },
+	listrequest(word) {
+		historyModel.addHistory(word);
+		let his = this.data.his;
+		his.unshift(word)
+		this.setData({
+			searching: true,
+			his
+		})
+
+		http.request({
+			url: "/placelist/search",
+			data: {
+				keyword: word
+			},
+			success: res => {
+				this.setData({
+					placeData: res.searchData
+				})
+
+			}
+		})
+	},
 	back:function () { 
 		wx.navigateBack({
 			delta: 1
 		});
+	},
+	history:function(e) {
+		this.setData({
+			inputValue: e.currentTarget.dataset.key
+		})
+		this.listrequest(e.currentTarget.dataset.key)
 	}
 })

@@ -1,17 +1,17 @@
 <!--components/place/index.wxml-->
 <navigator class="placeBox" url="/pages/placeDetail/index?pid={{pid}}&placeName={{placeName}}">
-  <image src="{{placeImg}}" class="placeImg"></image>
+  <image src="{{business_imgURL}}" class="placeImg"></image>
   <view class="contentBox">
     <text class="title">{{placeName}}</text>
     <view class="position">
       <view class="pos-class center">
         <image class="img-pos" src="../images/position-act.png" ></image>
-        <text class="text ">北京</text>
+        <text class="text ">{{city}}</text>
       </view>
         <text class="distance ">{{distance}}KM</text>
       </view>
       <view class="priceBox ">
-        <text class="star ">{{grade}}分</text>
+        <text class="star ">{{score}}分</text>
         <text class="price "> <text class="em"> ￥{{price}}</text>/h</text>
       </view>
     </view>

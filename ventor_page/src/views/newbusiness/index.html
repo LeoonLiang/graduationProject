@@ -1,0 +1,55 @@
+<div class="new-business">
+  <h1>初来乍到，新建店铺</h1>
+  <el-form :model="newBusinessForm" :rules="newBusinessFormRules" ref="newBusinessForm" label-width="100px"
+    class="new-box">
+    <el-form-item label="场馆名" prop="business_name">
+      <el-input type="text" v-model="newBusinessForm.business_name" autocomplete="off"></el-input>
+    </el-form-item>
+    <el-form-item label="手机号" prop="telphone">
+      <el-input type="number" v-model="newBusinessForm.telphone" autocomplete="off"></el-input>
+    </el-form-item>
+    <el-form-item label="日期" prop="business_start_time">
+      <el-time-select placeholder="起始时间" v-model=" newBusinessForm.business_start_time" :picker-options="{
+          start: '06:00',
+          step: '01:00',
+          end: '22:00'
+        }" class="time-select">
+      </el-time-select>
+      <el-time-select placeholder="结束时间" v-model="newBusinessForm.business_end_time" :picker-options="{
+          start: '07:00',
+          step: '01:00',
+          end: '24:00',
+          minTime: newBusinessForm.business_start_time
+        }" class="time-select">
+      </el-time-select>
+    </el-form-item>
+    <el-form-item label="地址" prop="address">
+      <el-autocomplete v-model="mapLocation.address" :fetch-suggestions="querySearch" placeholder="请输入详细地址"
+        style="width: 500px" :trigger-on-focus="false" @select="handleSelect" />
+      <div style="margin: 5px">
+        <baidu-map class="bm-view" :center="mapCenter" :zoom="mapZoom" :scroll-wheel-zoom="true"
+          ak="fIfBIZNRnEj1A8G8nNWFqM3F9w09ny3B" @ready="handlerBMap" />
+      </div>
+    </el-form-item>
+    <el-form-item label="店铺图片" prop="img">
+      <el-upload
+      class="upload-demo"
+      ref="upload"
+      action="http://localhost:8080/upload"
+      :on-success="uploadsuc"
+      :on-exceed = "maxfile"
+      :file-list="fileList"
+      :auto-upload="true"
+      :on-remove="removeImg"
+      :limit="1">
+      <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+      <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+    </el-upload>
+    </el-form-item>
+    <el-form-item>
+      <el-button type="primary" @click="submitForm('newBusinessForm')" style="width:100%">新建店铺</el-button>
+    </el-form-item>
+
+  </el-form>
+
+</div>

@@ -1,0 +1,16 @@
+<!--pages/me/index.wxml-->
+<view class="user-top">
+    <!-- <view class="cu-avatar xl round margin-left bg-red" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg)"></view> -->
+    <!-- <open-data class="avatar" type="userAvatarUrl"></open-data> -->
+	<button class="avatar-out"  open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" plain="{{true}}"><image class="avatar" src="{{avatarUrl}}">
+    </image></button>
+    <view class="nickname">{{nickName}}</view>
+</view>
+
+<navigator url="../myOrder/index">
+	<view class="cu-item">
+		<view class="content">
+			<text class="text-grey">我的订单</text>
+		</view>
+	</view>
+</navigator>

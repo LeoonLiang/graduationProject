@@ -1,18 +1,18 @@
 <!--components/comment/index.wxml-->
 <view class="wrap">
 	<view>
-		<image src="{{commentData.headURL}}" class="head"></image>
+		<image src="{{commentData.User.headURL}}" class="head"></image>
 	</view>
 	<view class="content">
 		<view class="username-box">
 			<view class="username">
-				{{commentData.username}}
+				{{commentData.User.nickname}}
 			</view>
 			<view class="time">
-				{{commentData.time}}
+				{{commentData.createdAt}}
 			</view>
 		</view>
-		<rate-cmp rate="{{commentData.rate}}"></rate-cmp>
+		<rate-cmp rate="{{commentData.score}}"></rate-cmp>
 		<view class="com-comment" id="comment" bindtap="gan">
 			{{commentData.content}}
 		</view>
