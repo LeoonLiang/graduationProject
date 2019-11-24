@@ -137,7 +137,11 @@ Page({
 				total_price:this.data.total
 			},
 			success: res => {
-				console.log(res)
+				if(res.error_code==0) {
+					wx.navigateTo({
+						url: '../finshOrder/index',
+					})
+				}
 			}
 		})
 

@@ -1,9 +1,9 @@
 const bcrypt = require('bcryptjs')
 const moment = require('moment')
-moment.locale('zh-cn')
+moment.locale('ZH-CN')
 const { sequelize } = require('../../core/db');
 
-const { Sequelize, Model } = require('sequelize');
+const { Sequelize, Model, Op } = require('sequelize');
 class User extends Model {
     static async verifyPhonePassword(phonenum, plainPassword) {
 
@@ -77,6 +77,7 @@ class Comment extends Model {
     static async getComment(bid) {
         // console.log("里面",bid)
         const commentData = await Comment.findAll({
+            order:[["createdAt",'DESC']],
             include: [{
                 model: User,
                 attributes: ["nickname", "headURL"],
@@ -105,7 +106,7 @@ Comment.init({
     createdAt: {
         type: Sequelize.DATE,
         get() {
-            return moment(this.getDataValue('createdAt')).startOf('hour').fromNow();
+            return moment(this.getDataValue('createdAt')).format("YYYY-MM-DD HH:mm:ss")
         }
     }
 }, {
@@ -115,6 +116,42 @@ Comment.init({
 
 
 class Order extends Model {
+    static async newOrder(bid) {
+        const res = await Order.findAll({
+            order:[["createdAt",'DESC']],
+            include: [{
+                model: User,
+                attributes: ["nickname"],
+                where: {
+                    id: Sequelize.col('Order.uid')
+                }
+            }],
+            where:{
+                [Op.and]:[
+                    {bid:bid},
+                    {book_date:moment(new Date()).format("YYYY-MM-DD")}
+                ]
+            }
+        })
+        return res
+    }
+
+    static async orderList(bid) {
+        const res = await Order.findAll({
+            order:[["createdAt",'DESC']],
+            include: [{
+                model: User,
+                attributes: ["nickname"],
+                where: {
+                    id: Sequelize.col('Order.uid')
+                }
+            }],
+            where:{
+                bid
+            }
+        })
+        return res
+    }
 
 }
 
@@ -139,6 +176,12 @@ Order.init({
     book_hour: Sequelize.INTEGER,
     total_price: Sequelize.INTEGER,
     order_type: Sequelize.INTEGER,
+    createdAt: {
+        type: Sequelize.DATE,
+        get() {
+            return moment(this.getDataValue('createdAt')).format('YYYY-MM-DD hh:mm:ss')
+        }
+    }
 
 }, {
     sequelize,

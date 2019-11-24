@@ -1,0 +1,23 @@
+<!--components/orderItem/index.wxml-->
+<view class="orderitem">
+    <view class="detail">
+        <view class="title">{{orderData.business.business_name}}</view>
+        <view>预订号：{{orderData.order_id}}</view>
+        <view>预订项目：{{orderData.project_name}}</view>
+        <view>预订时间：{{orderData.book_date}}</view>
+        <view>预订时长：{{orderData.book_hour}}</view>
+        <view>预订价格：￥{{orderData.price}}</view>
+    </view>
+    <view class="other">
+        <view class="time">{{orderData.createdAt}}</view>
+        <view class="type" wx:if="{{orderData.order_type==1}}">已支付</view>
+        <view class="over" wx:if="{{orderData.order_type==2}}">
+			<navigator url="/pages/comment/index?bid={{orderData.bid}}&&uid={{orderData.uid}}&&oid={{orderData.id}}">
+				点击评论->
+			</navigator>
+		</view>
+		<view class="over" wx:if="{{orderData.order_type==3}}">
+			已评论
+		</view>
+    </view>
+</view>

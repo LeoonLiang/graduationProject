@@ -1,0 +1,43 @@
+/* components/orderItem/index.wxss */
+.orderitem {
+	display: flex;
+	flex-direction: row;
+	/* align-items:baseline; */
+	justify-content: space-between;
+	padding: 20rpx 30rpx;
+	background-color: #fff;
+	border-radius: 10rpx;
+	box-sizing: border-box;
+	margin: 20rpx 0;
+}
+
+.orderitem .title {
+	font-size: 36rpx;
+	margin-bottom: 20rpx;
+}
+
+
+.orderitem .detail {
+	flex: 5;
+	font-size: 28rpx;
+}
+
+.orderitem .other {
+	flex:2;
+	text-align: right;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.orderitem .other .time {
+	color: #ccc;
+}
+
+.orderitem .other .type {
+	color: #1D61D4;
+}
+
+.orderitem .other .over {
+	color: #ccc;
+}

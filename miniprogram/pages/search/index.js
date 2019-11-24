@@ -14,30 +14,19 @@ Page({
 		searching:false,
 		inputValue:"",
 		his:[],
-		placeData: [
-			{
-			pid: 1,
-			placeName: "这是第一家店",
-			placeImg: "../../images/place1.jpg",
-			distance: 1.7,
-			grade: 9.1,
-			price: 100
-		  },
-		  {
-			pid: 2,
-			placeName: "这是第二家店",
-			placeImg: "../../images/place1.jpg",
-			distance: 2.7,
-			grade: 7.1,
-			price: 200
-		  },
-		],
+		placeData: [],
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
+		if(options.searchkey) {
+			this.setData({
+				inputValue: options.searchkey
+			})
+			this.listrequest(options.searchkey)
+		}
 		this.setData({
 			his: historyModel.getHistory()
 		})
@@ -117,10 +106,13 @@ Page({
 				keyword: word
 			},
 			success: res => {
-				this.setData({
-					placeData: res.searchData
-				})
+				if(res.searchData.length>0){
+					this.setData({
+						placeData: res.searchData
+					})
+				}else{
 
+				}
 			}
 		})
 	},

@@ -1,0 +1,84 @@
+/* components/matchItem/index.wxss */
+.matchItem{
+  margin-top: 10px;
+  width: 750rpx;
+  background: #fff;
+  padding: 20rpx;
+}
+
+.matchItem_top::after{
+  content: '';
+  display: block;
+  clear: both
+}
+
+.matchItem_img{
+  float: left;
+  width: 270rpx;
+  height: 170rpx;
+  background: #0081FF;
+  border-radius: 20rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.matchItem_img_status{
+  position: absolute;
+  top: -20rpx;
+  left: -50rpx;
+  transform: rotate(-45deg);
+  width: 140rpx;
+  height: 80rpx;
+  background: #FF9A18;
+  color: #fff;
+  text-align: center;
+  vertical-align: bottom;
+  line-height: 120rpx;
+  font-size: 24rpx;
+}
+
+.gray{
+  background: gainsboro;
+}
+
+.green{
+  background: #00C592;
+}
+
+.matchItem_info{
+  width: 410rpx;
+  float: right;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.title{
+  margin-top: 20rpx;
+  display: -webkit-box;
+  font-size: 36rpx;
+  font-weight: bold;
+  line-height: 36rpx;
+  -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+}
+
+.location{
+  margin-top: 20rpx;
+  color: #E62657;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.matchItem_bottom{
+  padding: 20rpx 0;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid gainsboro;
+  color: #898989;
+}

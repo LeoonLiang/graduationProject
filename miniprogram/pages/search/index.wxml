@@ -28,4 +28,5 @@
     <block wx:for="{{placeData}}" wx:key="pid">
         <place-cmp placeData="{{item}}"></place-cmp>
       </block>
+	  <view style="text-align:center;margin-top:30rpx;">-没有更多了-</view>
 </view>

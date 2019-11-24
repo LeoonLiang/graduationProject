@@ -1,0 +1,72 @@
+<!--components/matchApplyPageThree/index.wxml-->
+<!-- 详细信息 go -->
+<view class="details">
+<view class="success">
+  <text class="cuIcon-roundcheckfill lg text-gray"></text>
+  恭喜您！报名成功
+</view>
+
+<view>以下是你的报名信息:</view>
+
+<view class="details_top">
+  <view class="match_title">比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题比赛标题</view>
+  <view class="location"><text class="cuIcon-locationfill"></text>地点地点地点地点地点地点地点地点地点地点地点地点地点</view>
+  <view class="detail_item">
+    <view class="detail_title">活动时间:</view>
+    <text><text>2019/06/05</text>-<text>2019/06/09</text></text>
+  </view>
+  <view class="detail_item">
+    <view class="detail_title">项目类型:</view>
+    <text>团队类 | 成年组</text>
+    <view class="fold"><text class="cuIcon-fold">收起报名详情</text></view>
+  </view>
+</view>
+
+<view class="details_bottom">
+  <view class="detail_item">
+    <view class="detail_title">团队名称:</view>
+    <text>团队名称</text>
+  </view>
+  <view class="detail_item">
+    <view class="detail_title">领队名称:</view>
+    <text>领队名称</text>
+  </view>
+  <view class="detail_item">
+    <view class="detail_title">领队手机号:</view>
+    <text>1232343546</text>
+  </view>
+  <view class="detail_item">
+    <view class="detail_title">所属单位:</view>
+    <text>所属单位名称</text>
+  </view>
+</view>
+</view>
+<!-- 详细信息 end -->
+
+<!-- 队员信息 go -->
+<view class="membeInfo">
+  <view class="membeInfo_title">队员信息如下</view>
+  <view class="membeInfo_item">
+    <view class="membeInfo_item_title">队员姓名</view>
+    <view class="membeInfo_item_content">
+      <view>ewrgeger</view>
+      <view>yujhg</view>
+      <view>wevdsv</view>
+      <view>reredzb</view>
+    </view>
+  </view>
+  <view class="membeInfo_item">
+    <view class="membeInfo_item_title">队员姓名</view>
+    <view class="membeInfo_item_content">
+      <view>ewrgeger</view>
+      <view>yujhg</view>
+      <view>wevdsv</view>
+      <view>reredzb</view>
+    </view>
+  </view>
+</view>
+<!-- 队员信息 end -->
+
+<image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg" mode="aspectFill"></image>
+
+<view class="updateApplyInfo">修改报名信息</view>

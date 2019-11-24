@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "pageOne-cmp": "/components/matchApplyPageOne/index",
+    "pageTwo-cmp": "/components/matchApplyPageTwo/index",
+    "pageThree-cmp": "/components/matchApplyPageThree/index"
+  },
+  "navigationBarTitleText": "选择赛事项目"
+}

@@ -49,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -83,6 +83,34 @@
 					"id": -1,
 					"name": "pages/orderDetail/index",
 					"pathName": "pages/orderDetail/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/finshOrder/index",
+					"pathName": "pages/finshOrder/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/myOrder/index",
+					"pathName": "pages/myOrder/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/finshOrder/index",
+					"pathName": "pages/finshOrder/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/comment/index",
+					"pathName": "pages/comment/index",
 					"scene": null
 				}
 			]

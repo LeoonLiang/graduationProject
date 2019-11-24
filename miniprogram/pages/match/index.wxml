@@ -1,0 +1,5 @@
+<!--pages/match/index.wxml-->
+
+<block wx:for="{{itemList}}" wx:key="pid">
+<matchItem-cmp matchData="{{item}}"></matchItem-cmp>
+</block>

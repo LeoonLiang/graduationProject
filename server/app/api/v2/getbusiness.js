@@ -4,6 +4,7 @@ const router = new Router({
     prefix: '/api/v2/get'
 });
 const { Business, Business_project } = require('../../models/business')
+const { Order } = require('../../models/user')
 // const { Business_project } = require('../../models/business_project')
 
 
@@ -21,9 +22,12 @@ router.get("/info", async (ctx) => {
             id: bid.dataValues.id
         }
     })
+
+    const orderData = await newOrder(bid.dataValues.id)
 //    console.log(businessData)
     ctx.body={
-        businessData
+        businessData,
+        orderData
     }
 })
 
@@ -41,5 +45,21 @@ router.get("/project", async (ctx) => {
     }
 })
 
+router.get("/orderlist", async (ctx) => {
+    const { bid } = ctx.request.query
+    const orderData = await orderList(bid)
+
+    ctx.body={
+        orderData
+    }
+})
+
+async function newOrder(bid) {
+    return await Order.newOrder(bid)
+}
+
+async function orderList(bid) {
+    return await Order.orderList(bid)
+}
 
 module.exports = router 

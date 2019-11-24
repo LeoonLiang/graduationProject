@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "matchItem-cmp": "/components/matchItem/index"
+  },
+  "navigationBarTitleText": "赛事列表"
+}

@@ -1,4 +1,4 @@
-// pages/myOrder/index.js
+// pages/comment/index.js
 const { HTTP } = require('../../util/http')
 var http = new HTTP()
 Page({
@@ -7,42 +7,17 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		orderData:[
-			{
-				business_name: "体院馆",
-				project_name: "乒乓球",
-				book_date: "2019-10-11",
-				book_hour: 4,
-				createdAt: "2019-10-14 16:20:24",
-				price: 28,
-				order_type: 1
-			},
-			{
-				business_name: "体院馆",
-				project_name: "乒乓球",
-				book_date: "2019-10-11",
-				book_hour: 4,
-				createdAt: "2019-10-14 16:20:24",
-				price: 28,
-				order_type: 1
-			}
-		]
+		score:5
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		http.request({
-			url:"/order/myorder",
-			data:{
-				uid:wx.getStorageSync("uid")
-			},
-			success:(res)=>{
-				this.setData({
-					orderData:res.orderData
-				})
-			}
+		this.setData({
+			uid:options.uid,
+			bid:options.bid,
+			id: options.oid
 		})
 	},
 
@@ -71,9 +46,7 @@ Page({
 	 * 生命周期函数--监听页面卸载
 	 */
 	onUnload: function () {
-		wx.reLaunch({
-			url: '/pages/my/index',
-		})
+
 	},
 
 	/**
@@ -95,5 +68,35 @@ Page({
 	 */
 	onShareAppMessage: function () {
 
+	},
+
+	onSelect(e) {
+		this.setData({
+			score: e.currentTarget.dataset.index+1
+		})
+	},
+
+	onComment(){
+		http.request({
+			url:'/order/comment',
+			method:'POST',
+			data:{
+				uid:this.data.uid,
+				bid:this.data.bid,
+				content:this.data.content,
+				score:this.data.score,
+				id: this.data.id
+			},
+			success:(res)=>{
+				wx.navigateBack({
+					delta: 2
+				})
+			}
+		})
+	},
+	textareaBInput(e) {
+		this.setData({
+			content:e.detail.value
+		})
 	}
 })

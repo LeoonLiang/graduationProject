@@ -1,0 +1,29 @@
+/* pages/comment/index.wxss */
+.rate-box {
+	/* margin-top: rpx; */
+	display: flex;
+	align-items: center;
+	min-height: 200rpx;
+	justify-content: left;
+}
+
+.rate {
+	display: flex;
+	font-size: 80rpx;
+	color:#ccc;
+}
+
+.rate .star {
+	padding: 0 10rpx;
+}
+
+.rate .act {
+	color: #f8e71c;
+}
+
+.comment-btn {
+	margin-top: 100rpx;
+	background-color:#1D61D4 !important;
+	height: 100rpx;
+	color: #fff;
+}

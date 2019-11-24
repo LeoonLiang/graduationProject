@@ -1,0 +1,16 @@
+<!--pages/comment/index.wxml-->
+<view class="cu-form-group align-start" style="margin-top:2rpx">
+    <view class="title">评论</view>
+    <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请在这里输入评论"></textarea>
+</view>
+
+<view class="cu-form-group align-start rate-box">
+    <view class="title">评分</view>
+    <view class="rate">
+        <view class="cuIcon-favorfill star {{index<score?'act':''}}" wx:for="{{5}}" data-index="{{index}}" bindtap="onSelect"></view>
+    </view>
+</view>
+
+<view class="padding flex flex-direction">
+  <button class="cu-btn comment-btn" bindtap="onComment">提交</button>
+</view>

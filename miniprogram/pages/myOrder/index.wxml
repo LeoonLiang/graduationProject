@@ -1,2 +1,4 @@
 <!--pages/myOrder/index.wxml-->
-<text>pages/myOrder/index.wxml</text>
+<block wx:for="{{orderData}}" wx:key>
+<order-cmp orderData="{{item}}"></order-cmp>
+</block>

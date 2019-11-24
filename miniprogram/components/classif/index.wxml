@@ -1,5 +1,7 @@
 <!--components/classif/index.wxml-->
-<view class="classif">
-  <image src="{{classifImg}}" class="img"></image>
-  <text class="name">{{classifName}}</text>
-</view>
+<navigator url="/pages/search/index?searchkey={{classifName}}">
+    <view class="classif">
+        <image src="{{classifImg}}" class="img"></image>
+        <text class="name">{{classifName}}</text>
+    </view>
+</navigator>

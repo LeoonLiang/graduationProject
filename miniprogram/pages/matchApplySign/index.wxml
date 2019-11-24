@@ -1,0 +1,19 @@
+<!--pages/matchApplySign/index.wxml-->
+<view class="bg-white padding">
+  <view class="cu-steps">
+    <view class="cu-item {{index>num?'':'text-blue'}}" wx:for="{{numList}}" wx:key>
+      <text class="num {{index==2?'err':''}}" data-index="{{index + 1}}"></text> {{item.name}}
+    </view>
+  </view>
+</view>
+
+<view class="thePhone"><text class="cuIcon-phone lg text-gray"></text></view>
+
+<view wx-if="{{num==0}}"><pageOne-cmp></pageOne-cmp></view>
+<view wx:elif="{{num==1}}"><pageTwo-cmp></pageTwo-cmp></view>
+<view wx:elif="{{num==2}}"><pageThree-cmp></pageThree-cmp></view>
+
+<!-- <pageOne-cmp></pageOne-cmp> -->
+<!-- <pageTwo-cmp></pageTwo-cmp> -->
+<!-- <pageThree-cmp></pageThree-cmp> -->
+

@@ -1,1 +1,5 @@
 /* pages/myOrder/index.wxss */
+page {
+	padding: 0 20rpx;
+	box-sizing: border-box;
+}

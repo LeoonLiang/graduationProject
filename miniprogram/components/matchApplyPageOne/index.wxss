@@ -1,0 +1,43 @@
+/* components/matchApplyPageOne/index.wxss */
+.selectBar{
+  padding: 20rpx;
+  background: #fff;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.fz32{
+  font-size: 32rpx;
+}
+
+.group{
+  margin-top: 20rpx;
+  padding: 20rpx;
+}
+
+.applying{
+  margin-right: 20rpx;
+}
+
+.group_middle{
+  margin: 20rpx 0;
+  padding: 20rpx 0;
+  border-top: 1px gainsboro solid;
+  border-bottom: 1px gainsboro solid;
+}
+
+.group_bottom{
+  display: flex;
+  justify-content: space-between;
+  color: gainsboro;
+}
+
+.endTime{
+  line-height: 54rpx;
+}
+
+.singed{
+  background: gainsboro;
+  color: #fff;
+}

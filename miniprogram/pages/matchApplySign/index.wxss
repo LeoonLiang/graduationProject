@@ -1,0 +1,10 @@
+/* pages/matchApplySign/index.wxss */
+.thePhone{
+  position: fixed;
+  bottom: 100rpx;
+  right: 40rpx;
+}
+.thePhone text{
+  font-size: 90rpx;
+  color: #0081FF;
+}
