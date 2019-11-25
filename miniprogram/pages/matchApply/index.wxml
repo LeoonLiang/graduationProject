@@ -2,36 +2,38 @@
 <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg" style="width:100%"></image>
 
 <view class="details">
-  <view class="item">
-    <view class="tittle">ergergbeberberegxvhkenkrevaherukjereregerevreee</view>
-  </view>
-  <view class="item">
-    <view class="location"><text class="cuIcon-locationfill"></text>ergergbeberberegxvhkenkrevaheru</view>
-  </view>
-  <view class="item">
-    <view class="caption">报名截止:</view>
-    <view class="cont">剩余</view>
-  </view>
-  <view class="item">
-    <view class="caption">活动时间：</view>
-    <view class="cont">
-      <text></text>-<text></text>
+    <view class="item">
+        <view class="tittle">ergergbeberberegxvhkenkrevaherukjereregerevreee</view>
     </view>
-  </view>
-  <view class="item">
-    <view class="caption">赛事项目</view>
-    <view class="cont">
-      <view class="group">少年组</view>
-      <view class="group mgl40">成年组</view>
+    <view class="item">
+        <view class="location">
+            <text class="cuIcon-locationfill"></text>ergergbeberberegxvhkenkrevaheru</view>
     </view>
-  </view>
+    <view class="item">
+        <view class="caption">报名截止:</view>
+        <view class="cont">剩余</view>
+    </view>
+    <view class="item">
+        <view class="caption">活动时间：</view>
+        <view class="cont">
+            <text></text>-
+            <text></text>
+        </view>
+    </view>
+	 <view class="item">
+        <view class="caption">联系电话：</view>
+        <view class="cont">
+            <text></text>-
+            <text></text>
+        </view>
+    </view>
 </view>
 
 <view class="introduce">
-  <view class="introduce_title">活动介绍</view>
-  <view class="introduce_content">wefeewsdugkbjw</view>
+    <view class="introduce_title">活动介绍</view>
+    <view class="introduce_content">wefeewsdugkbjw</view>
 </view>
 
 <navigator url="/pages/matchApplySign/index">
-<view class="apply">我要报名</view>
+    <view class="apply">我要报名</view>
 </navigator>

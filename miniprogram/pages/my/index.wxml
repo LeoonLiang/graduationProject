@@ -14,3 +14,11 @@
 		</view>
 	</view>
 </navigator>
+
+<navigator url="../myComment/index">
+	<view class="cu-item" style="margin-top:2rpx">
+		<view class="content">
+			<text class="text-grey">我的评论</text>
+		</view>
+	</view>
+</navigator>

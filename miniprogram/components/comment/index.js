@@ -6,9 +6,6 @@ Component({
 	properties: {
 		commentData: {
 			type: Object,
-			value: {
-				
-			}
 
 		}
 	},

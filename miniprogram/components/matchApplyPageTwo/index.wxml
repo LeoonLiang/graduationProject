@@ -23,45 +23,7 @@
 </view>
 </form>
 
-<view class="tips">可在下面填入需要一起报名的人</view>
 
-<view class="menberName">
-  <view class="menberName_title">队员姓名</view>
-  <view class="menberName_names">
-    <view>erghrher</view>
-    <view>viozhnzklb</view>
-    <view>8b65wresg</view>
-    <view>rtxeejrjt</view>
-  </view>
-  <view class="cu-btn round bg-red menberName_delete">删除</view>
-</view>
 
-<form>
-<view class="InfoForm formTwo">
-  <view class="item">
-    <view class="">姓名</view>
-    <input placeholder="请输入真实姓名"></input>
-  </view>
-
-  <view class="item">
-    <view class="">身份证号</view>
-    <input placeholder="请输入身份证号"></input>
-  </view>
-
-  <view class="item">
-    <view class="">手机号</view>
-    <input placeholder="请输入手机号"></input>
-  </view>
-
-  <view class="item">
-    <view class="">添加填写项</view>
-    <input placeholder="请输入添加填写项"></input>
-  </view>
-
-  <view class="commitBar">
-  <button class="addMember cu-btn round line-blue">+  添加队员</button>
-  </view>
-</view>
-</form>
 
 <view class="apply">提交报名</view>

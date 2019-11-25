@@ -1,0 +1,26 @@
+/* pages/myComment/index.wxss */
+
+.item {
+	background-color: #fff;
+	border-radius: 10rpx;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 20rpx;
+	box-sizing: border-box;
+	padding: 20rpx;
+}
+
+.left {
+	flex: 6;
+}
+
+.right {
+	flex: 1;
+	text-align: right;
+	color: #f8e71c;
+}
+
+.title {
+	font-size: 36rpx;
+}

@@ -14,20 +14,22 @@
     <el-table :data="orderData" style="width: 100%" max-height="250">
       <el-table-column fixed prop="order_id" label="订单号" width="150">
       </el-table-column>
-      <el-table-column prop="nickname" label="姓名" width="120">
+      <el-table-column prop="User.nickname" label="姓名" width="120">
       </el-table-column>
       <el-table-column prop="project_name" label="预订项目" width="120">
       </el-table-column>
-      <el-table-column prop="price" label="已支付" width="120" :formatter="formatter">
+      <el-table-column prop="total_price" label="已支付" width="120" :formatter="formatter">
       </el-table-column>
-      <el-table-column prop="time_length" label="时长(小时)" width="120">
+      <el-table-column prop="book_date" label="预订时间" width="120">
       </el-table-column>
-      <el-table-column prop="date" label="下单时间" width="200">
+      <el-table-column prop="book_hour" label="时长(小时)" width="120">
+      </el-table-column>
+      <el-table-column prop="createdAt" label="下单时间" width="200">
       </el-table-column>
       <el-table-column prop="type" label="状态">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.type === 0 ? 'danger' : 'primary'" disable-transitions>
-            {{scope.row.type === 0?"待处理":"已处理"}}</el-tag>
+          <el-tag :type="scope.row.order_type === 1 ? 'danger' : 'primary'" disable-transitions>
+            {{scope.row.order_type === 1?"待处理":"已处理"}}</el-tag>
         </template>
       </el-table-column>
       <el-table-column fixed="right" label="操作" width="120">

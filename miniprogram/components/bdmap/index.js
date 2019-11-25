@@ -24,7 +24,7 @@ Component({
       ak: '您的ak'
     });
     var fail = function (data) {
-      console.log(data)
+
     };
     var success = function (data) {
       wxMarkerData = data.wxMarkerData;

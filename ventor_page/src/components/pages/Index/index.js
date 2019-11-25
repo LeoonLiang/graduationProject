@@ -20,28 +20,7 @@ export default {
                 score:null,
                 telphone:"",
             },
-            orderData:[
-                {
-                    order_id:123165113,
-                    nickname:"leoon",
-                    telphone:"13415638574",
-                    project_name:"羽毛球",
-                    price:66,
-                    time_length:4,
-                    date:"2019-08-24 14:00",
-                    type:0
-                },
-                {
-                    order_id:5623132,
-                    nickname:"某某",
-                    telphone:"134156328574",
-                    project_name:"乒乓球",
-                    price:66,
-                    time_length:4,
-                    date:"2019-11-24 14:00",
-                    type:1
-                }
-            ]
+            orderData:[]
         };
     },
     computed: {
@@ -52,10 +31,10 @@ export default {
   
     methods: {
         formatter(row,column) {
-            return row.price+" 元"
+            return row.total_price+" 元"
           },
-          handleOrder(index,orderData) {
-              if(orderData[index].type==1) {
+          async handleOrder(index,orderData) {
+              if(orderData[index].order_type==2) {
                   this.$message({
                       message:"已经处理过咯",
                       type:"warning"
@@ -66,12 +45,15 @@ export default {
                 confirmButtonText: '确定',
                 cancelButtonText: '取消',
                 type: 'warning'
-              }).then(()=>{
+              }).then(async ()=>{
                 //   发送服务器 
+                const url = "/v2/update/ordertype"
+                const res = await this.$http.post(url, {order_id:orderData[index].order_id})
                 this.$message({
                     type: 'success',
                     message: '处理成功!'
                   })
+                  this.getList()
               }).catch(()=> {
                 this.$message({
                     type: 'info',
@@ -91,17 +73,21 @@ export default {
              this.businessData = JSON.parse(JSON.stringify(this.editData))
              this.baseFormVisible = false;
             
+          },
+          async getList() {
+            const url = "/v2/get/info"
+            let params = {
+                uid: localStorage.getItem("uid")
+              }
+            const res = await this.$http.get(url,{params})
+            if(res.status===200) {
+                this.businessData = JSON.parse(JSON.stringify(res.data.businessData))
+                this.orderData = res.data.orderData
+                localStorage.setItem("bid",res.data.businessData.id)
+            }
           }
     },
     async created() {
-        const url = "/v2/get/info"
-        let params = {
-            uid: localStorage.getItem("uid")
-          }
-        const res = await this.$http.get(url,{params})
-        if(res.status===200) {
-            this.businessData = JSON.parse(JSON.stringify(res.data.businessData))
-            localStorage.setItem("bid",res.data.businessData.id)
-        }
+       this.getList();
     },
 }

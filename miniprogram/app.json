@@ -13,7 +13,8 @@
 		"pages/match/index",
 		"pages/matchApply/index",
 		"pages/matchApplySign/index",
-		"pages/comment/index"
+		"pages/comment/index",
+		"pages/myComment/index"
 	],
 	"window": {
 		"navigationBarTitleText": "场地预订",

@@ -22,7 +22,7 @@ Component({
 	},
 	watch: {
 		'location':function(loca) {
-			console.log(loca)
+		
 			http.request({
 				url: '/placelist/recommendedlist',
 				method: 'GET',
@@ -30,7 +30,7 @@ Component({
 					location:loca
 				},
 				success: (res) => {
-				console.log(res)
+			
 					this.setData({
 						placeData:res.res
 					})
@@ -47,7 +47,7 @@ Component({
 	},
 	lifetimes: {
 		attached: function() {
-			console.log("组件的是",this.data)
+			
 		}
 	}
 })

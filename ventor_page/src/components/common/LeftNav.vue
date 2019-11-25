@@ -25,10 +25,12 @@
           <span slot="title">项目管理</span>
         </el-menu-item>
       </router-link>
-      <el-menu-item index="3">
-        <i class="el-icon-document"></i>
-        <span slot="title">订单管理</span>
-      </el-menu-item>
+       <router-link to="/order">
+        <el-menu-item index="3">
+          <i class="el-icon-menu"></i>
+          <span slot="title">订单管理</span>
+        </el-menu-item>
+      </router-link>
 
     </el-menu>
   </div>

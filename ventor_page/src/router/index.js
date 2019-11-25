@@ -6,6 +6,8 @@ import Index from '@/views/Index/index.vue'
 import newbusiness from '@/views/newbusiness/index.vue'
 import IndexPage from '@/components/pages/Index/index.vue'
 import PMpage from '@/components/pages/PMpage/index.vue'
+import Order from '@/components/pages/Order/index.vue'
+
 
 
 Vue.use(Router)
@@ -26,7 +28,12 @@ const router = new Router({
           path:'PMpage',
           name:'PMpage',
           component:PMpage
-        }
+        },
+        {
+          path:'Order',
+          name:'Order',
+          component:Order
+        },
       ]
     },
     {

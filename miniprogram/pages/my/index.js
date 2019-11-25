@@ -24,7 +24,7 @@ Page({
 					// 已经授权，可以直接调用 getUserInfo 获取头像昵称
 					wx.getUserInfo({
 						success:(res)=> {
-							console.log(res)
+					
 							this.setData({
 								avatarUrl: res.userInfo.avatarUrl,
 								nickName: res.userInfo.nickName,
@@ -105,7 +105,7 @@ Page({
 						nickname: e.detail.userInfo.nickName
 					},
 					success(res) {
-						console.log(res)
+					
 					}
 				
 				})
