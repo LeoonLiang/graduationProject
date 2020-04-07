@@ -114,7 +114,7 @@ Page({
 		})
 	},
 	hideModal(e) {
-		this.setData({
+		  this.setData({
 			modalName: null
 		})
 	},
@@ -124,26 +124,50 @@ Page({
 		})
 	},
 	finshOrder() {
-		http.request({
-			url: "/order/commit",
-			method:"POST",
-			data: {
-				uid: wx.getStorageSync("uid"),
-				bid:this.data.placeData.id,
-				telphone:this.data.telphone,
-				project_name:this.data.projectData.project_name,
-				book_date:this.data.date,
-				book_hour:this.data.hour,
-				total_price:this.data.total
-			},
-			success: res => {
-				if(res.error_code==0) {
-					wx.navigateTo({
-						url: '../finshOrder/index',
+		let that = this
+		return new Promise((resolve, reject) => {
+			wx.requestSubscribeMessage({
+			  tmplIds: ["PTv7Vt1aJplwpLBw7chjbTptg1HrERStE2IB6TfrPyw"],
+			  success: (res) => {
+				if (res['PTv7Vt1aJplwpLBw7chjbTptg1HrERStE2IB6TfrPyw'] === 'accept'){
+				  wx.showToast({
+					title: '订阅成功！',
+					duration: 1000,
+					success(data) {
+					  //成功
+					  console.log(data)
+					  http.request({
+						url: "/order/commit",
+						method:"POST",
+						data: {
+							uid: wx.getStorageSync("uid"),
+							bid:that.data.placeData.id,
+							telphone:that.data.telphone,
+							project_name:that.data.projectData.project_name,
+							book_date:that.data.date,
+							book_hour:that.data.hour,
+							total_price:that.data.total
+						},
+						success: res => {
+							if(res.error_code==0) {
+								wx.navigateTo({
+									url: '../finshOrder/index',
+								})
+							}
+						}
 					})
+					  resolve()
+					}
+				  })
 				}
-			}
-		})
+			  },
+			  fail(err) {
+				//失败
+				console.error(err);
+				reject()
+			  }
+			})
+		  })
 
 	}
 })

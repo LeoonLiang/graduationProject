@@ -1,7 +1,9 @@
 const Router = require('koa-router')
 const success = require('../../lib/helper')
-const { Order, Comment } = require('../../models/user')
+const { User, Order, Comment } = require('../../models/user')
 const { Business } = require('../../models/business')
+const { WXTemMsg } = require('../../services/wx')
+
 const router = new Router({
     prefix: '/api/v1/order'
 });
@@ -19,6 +21,20 @@ router.post("/commit", async (ctx) => {
         order_id:book_date,
         order_type:1
     })
+    let open_id = await User.findOne({
+        attributes:["openid"],
+        where:{
+            id:uid
+        }
+    })
+    
+    WXTemMsg.temMsg(open_id.dataValues.openid, {
+        project_name,
+        book_date,
+        telphone
+    })
+    console.log(open_id.dataValues)
+
     // console.log(res)
     success("下单成功")
 })
@@ -66,8 +82,45 @@ router.post("/comment", async (ctx) => {
             id    
         }
     })
+
+  
     // console.log(res)
     success("评论成功")
+})
+
+router.get("/mycomment", async (ctx) => {
+    const { uid } = ctx.request.query
+    const res = await Comment.findAll({
+        attributes:['id','content','createdAt','bid'],
+        where:{
+            uid
+        }
+    })
+    for(let i=0;i<res.length;i++) {
+        let business_name = await Business.findOne({
+            attributes:["business_name"],
+            where:{
+                id:res[i].dataValues.bid
+            }
+        })
+        res[i].dataValues.business_name=business_name.business_name
+    }
+    // console.log(res)
+    ctx.body={
+        res
+    }
+})
+
+router.post("/delcomment", async (ctx) => {
+    const { id } = ctx.request.body
+    const res = await Comment.destroy({
+        where:{
+            id
+        }
+    })
+ 
+    // console.log(res)
+    success("删除成功")
 })
 
 

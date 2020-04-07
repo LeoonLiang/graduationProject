@@ -7,6 +7,7 @@ import newbusiness from '@/views/newbusiness/index.vue'
 import IndexPage from '@/components/pages/Index/index.vue'
 import PMpage from '@/components/pages/PMpage/index.vue'
 import Order from '@/components/pages/Order/index.vue'
+import Match from '@/components/pages/Match/index.vue'
 
 
 
@@ -34,6 +35,11 @@ const router = new Router({
           name:'Order',
           component:Order
         },
+        {
+          path:'Match',
+          name:'Match',
+          component:Match
+        }
       ]
     },
     {

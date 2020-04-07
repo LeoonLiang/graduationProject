@@ -28,7 +28,41 @@ class WXManager {
         return generateToken(user.id, Auth.USER)
     }
 }
+class WXTemMsg {
+    static async temMsg(openid, data) {
+        let requestData ={
+            "touser": openid,
+            "template_id": "PTv7Vt1aJplwpLBw7chjbTptg1HrERStE2IB6TfrPyw",
+            "page": "index",
+            "data": {
+                "thing2": {
+                    "value": data.project_name
+                },
+                "time1": {
+                    "value": '2019年10月1日 15:01'
+                },
+                "thing3": {
+                    "value": "莱姿时刻"
+                },
+                "phone_number4": {
+                    "value": data.telphone
+                },
+                "thing6": {
+                    "value": "请调整好时间达到"
+                }
+            }
+          }
+          console.log('requestData', requestData)
+        const token = await axios.get(`https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxbc2136fc045a47e7&secret=973cb832139d2ecf07c3ffac91e5447f`
+            )
+        console.log('token', token.data.access_token)
+        const result = await axios.post(`https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token=${token.data.access_token}`, requestData)
+
+        console.log('result', result.data)
+    }
+}
 
 module.exports = {
-    WXManager
+    WXManager,
+    WXTemMsg
 }

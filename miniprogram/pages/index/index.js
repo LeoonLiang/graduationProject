@@ -200,6 +200,7 @@ Page({
             direction: e.touches[0].pageX - this.data.towerStart > 0 ? 'right' : 'left'
         })
     },
+
     // towerSwiper计算滚动
     towerEnd(e) {
         let direction = this.data.direction;

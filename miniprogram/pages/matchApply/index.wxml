@@ -3,25 +3,25 @@
 
 <view class="details">
     <view class="item">
-        <view class="tittle">ergergbeberberegxvhkenkrevaherukjereregerevreee</view>
+        <view class="tittle">环上海外滩自行车大赛</view>
     </view>
     <view class="item">
         <view class="location">
-            <text class="cuIcon-locationfill"></text>ergergbeberberegxvhkenkrevaheru</view>
+            <text class="cuIcon-locationfill"></text>上海外滩</view>
     </view>
     <view class="item">
         <view class="caption">报名截止:</view>
-        <view class="cont">剩余</view>
+        <view class="cont">剩余120天</view>
     </view>
     <view class="item">
         <view class="caption">活动时间：</view>
         <view class="cont">
-            <text></text>-
-            <text></text>
+            <text>2020-06-21</text>-
+            <text>2020-10-21</text>
         </view>
     </view>
 	 <view class="item">
-        <view class="caption">联系电话：</view>
+        <view class="caption">联系电话：13415632123</view>
         <view class="cont">
             <text></text>-
             <text></text>
@@ -31,7 +31,7 @@
 
 <view class="introduce">
     <view class="introduce_title">活动介绍</view>
-    <view class="introduce_content">wefeewsdugkbjw</view>
+    <view class="introduce_content">自行车大赛哦</view>
 </view>
 
 <navigator url="/pages/matchApplySign/index">

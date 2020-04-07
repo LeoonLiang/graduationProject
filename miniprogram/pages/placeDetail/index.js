@@ -122,6 +122,31 @@ Page({
 
     },
 
+    requestMsg(){
+		return new Promise((resolve, reject) => {
+		  wx.requestSubscribeMessage({
+			tmplIds: ["PTv7Vt1aJplwpLBw7chjbTptg1HrERStE2IB6TfrPyw"],
+			success: (res) => {
+			  if (res['PTv7Vt1aJplwpLBw7chjbTptg1HrERStE2IB6TfrPyw'] === 'accept'){
+				wx.showToast({
+				  title: '订阅成功！',
+				  duration: 1000,
+				  success(data) {
+					//成功
+					resolve()
+				  }
+				})
+			  }
+			},
+			fail(err) {
+			  //失败
+			  console.error(err);
+			  reject()
+			}
+		  })
+		})
+	  },
+
     phone() {
         wx.makePhoneCall({
             phoneNumber: this.data.placeData.telphone,

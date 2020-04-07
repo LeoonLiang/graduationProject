@@ -1,5 +1,5 @@
 const config = {
-    api_base_url:'http://localhost:3000/api/v1'
+    api_base_url:'http://leoon.utools.club/api/v1'
 }
 
 export {
