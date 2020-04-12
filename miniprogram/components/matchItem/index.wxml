@@ -7,7 +7,7 @@
     </view>
     <view class="matchItem_info">
       <view class="title">
-        {{matchData.title}}
+        {{matchData.match_name}}
       </view>
       <view class="location">
         <text class="cuIcon-locationfill"></text>
@@ -16,8 +16,8 @@
     </view>
   </view>
   <view class="matchItem_bottom">
-    <text>活动开始:<text>{{matchData.begintime}}</text></text>
-    <text>活动结束:<text>{{matchData.endtime}}</text></text>
+    <text>活动开始:<text>{{matchData.match_start_time}}</text></text>
+    <text>活动结束:<text>{{matchData.match_end_time}}</text></text>
   </view>
 </view>
 </navigator>

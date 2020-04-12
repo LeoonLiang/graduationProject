@@ -1,0 +1,2 @@
+<!--pages/finshOrder/index.wxml-->
+<msgg-cmp type="success" title="提交成功" desc="点击返回个人页" ext-class="ext" url="../../pages/my/index"></msgg-cmp>

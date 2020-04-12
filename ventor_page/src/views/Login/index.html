@@ -5,13 +5,18 @@
           ref 在vue中是一个特殊的属性，给组件或者HTML元素添加该属性后，
           可以在 js 中通过 this.$refs.loginForm 来获取到当前组件或这DOM对象
         -->
+       
         <el-form class="login-form" ref="loginForm" :model="loginForm" label-width="80px" :rules="rules" :label-position="labelPosition">
+            <div class="title">
+                场馆预订店家平台
+              </div>
           <!--
             el-form-item 是表单元素中的一行
             label 表示当前行的文字提示
     
             prop 是配合 表单校验 的属性
            -->
+           <div style="font-weight:bold;font-size: 18px;">登录</div>
           <el-form-item label="用户名" prop="account">
             <el-input v-model="loginForm.account"></el-input>
           </el-form-item>
@@ -19,9 +24,9 @@
             <!-- 给组件绑定事件的时候，如果发现绑定的事件不生效，那么，可以添加 .native 修饰符 -->
             <el-input v-model="loginForm.password" type="password" @keyup.enter.native="login"></el-input>
           </el-form-item>
-          <el-form-item>
+          <el-form-item style="text-align: center;">
             <el-button type="primary" @click="login">登录</el-button>
-            <el-button @click="reset">重置</el-button>
           </el-form-item>
+          <router-link to="/signup" class="sign-up">注册</router-link>
         </el-form>
       </div>

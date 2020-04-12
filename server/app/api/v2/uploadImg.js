@@ -13,7 +13,7 @@ router.post('/upload', upload.single('file'),async (ctx) => {
     // 省去校验...
     console.log(ctx.request.headers.host)
     ctx.body = {
-        filename: ctx.request.headers.host+'/images/'+ctx.req.file.filename//返回文件名
+        filename: '/images/'+ctx.req.file.filename//返回文件名
     }
 })
 

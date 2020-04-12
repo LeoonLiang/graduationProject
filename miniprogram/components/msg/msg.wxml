@@ -13,7 +13,7 @@
   </view>
   <view class="weui-msg__opr-area">
     <view class="weui-btn-area">
-          <navigator url="../../pages/myOrder/index">
+          <navigator url="{{url}}">
 		  <button class="weui-btn" type="default">确定</button>
 		  </navigator>
     </view>

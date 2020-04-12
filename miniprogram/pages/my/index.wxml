@@ -22,3 +22,20 @@
 		</view>
 	</view>
 </navigator>
+
+<navigator url="../beShoper/index">
+	<view class="cu-item" style="margin-top:2rpx">
+		<view class="content">
+			<text class="text-grey">成为店家</text>
+		</view>
+	</view>
+</navigator>
+
+<navigator url="../checkAudit/index">
+	<view class="cu-item" style="margin-top:2rpx">
+		<view class="content">
+			<text class="text-grey">查询审核</text>
+		</view>
+	</view>
+</navigator>
+

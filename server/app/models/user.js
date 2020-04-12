@@ -75,7 +75,6 @@ User.init({
 
 class Comment extends Model {
     static async getComment(bid) {
-        // console.log("里面",bid)
         const commentData = await Comment.findAll({
             order:[["createdAt",'DESC']],
             include: [{
@@ -112,6 +111,34 @@ Comment.init({
 }, {
     sequelize,
     tableName: 'Comment'
+})
+
+class Audit extends Model {
+}
+
+Audit.init({
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    name: Sequelize.STRING,
+    idNum: Sequelize.STRING,
+    telphone: Sequelize.STRING,
+    yingyeImg:  Sequelize.STRING,
+    idcardFront:  Sequelize.STRING,
+    idcardBack:  Sequelize.STRING,
+    idcardHand:  Sequelize.STRING,
+    type:Sequelize.STRING,
+    createdAt: {
+        type: Sequelize.DATE,
+        get() {
+            return moment(this.getDataValue('createdAt')).format("YYYY-MM-DD HH:mm:ss")
+        }
+    }
+}, {
+    sequelize,
+    tableName: 'Audit'
 })
 
 
@@ -196,5 +223,6 @@ Comment.belongsTo(User, { foreignKey: 'uid' })
 module.exports = {
     User,
     Comment,
+    Audit,
     Order
 }

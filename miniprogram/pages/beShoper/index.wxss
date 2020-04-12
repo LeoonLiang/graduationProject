@@ -1,0 +1,61 @@
+/* components/matchApplyPageTwo/index.wxss */
+.InfoForm{
+	padding: 20rpx 40rpx;
+	background: #fff;
+	margin-top: 40rpx;
+  }
+  .item{
+	margin-bottom: 40rpx;
+	padding: 20rpx 0;
+	border-bottom: 1px #0081FF solid;
+	color: #898989;
+  }
+  
+  .item input{
+	margin-top: 20rpx;
+  }
+  
+  .tips{
+	margin-top: 20rpx;
+	font-size: 36rpx;
+	background: #fff;
+	padding: 20rpx 40rpx;
+  }
+  
+  .menberName{
+	margin-top: 10rpx;
+	background: #fff;
+	padding: 20rpx 40rpx;
+	font-size: 32rpx;
+	position: relative;
+	display: flex;
+	justify-content: start;
+  }
+  .menberName_title{
+	margin-right: 40rpx;
+  }
+  
+  .menberName_delete{
+	position: absolute;
+	right: 20rpx;
+	bottom: 20rpx;
+  }
+  
+  .formTwo{
+	margin-top: 10rpx;
+  }
+  
+  .commitBar{
+	display: flex;
+	justify-content: flex-end;
+  }
+  
+  .apply{
+	margin-top: 40rpx;
+	width: 750rpx;
+	background: #0081FF;
+	color: #fff;
+	font-size: 40rpx;
+	padding: 20rpx 0;
+	text-align: center;
+  }

@@ -1,11 +1,7 @@
 // pages/match/index.js
-Component({
-    /**
-     * 组件的属性列表
-     */
-    properties: {
-
-    },
+const {HTTP} = require('../../util/http')
+const http = new HTTP()
+Page({
 
     /**
      * 组件的初始数据
@@ -34,6 +30,23 @@ Component({
             endtime: '2019/03/03'
         }]
     },
+
+    /**
+	 * 生命周期函数--监听页面加载
+	 */
+	onLoad: function (options) {
+        console.log('yuxing')
+		http.request({
+            url: '/Match/allMatch',
+            method: 'GET',
+            success: (res) => {
+                console.log(res)
+                this.setData({
+                    itemList:res.res
+                })
+            }	
+        })
+	},
 
     /**
      * 组件的方法列表

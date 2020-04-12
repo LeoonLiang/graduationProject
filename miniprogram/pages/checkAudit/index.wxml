@@ -1,0 +1,28 @@
+<!--pages/checkAudit/index.wxml-->
+<view class="top-search">
+    <view class="search-box">
+        <text class="cuIcon-search text-grey"></text>
+        <input type="text" auto-focus="true" placeholder="输入手机号查询" class="input-box" bindconfirm="search" value="{{inputValue}}"></input>
+        <text class="cuIcon-roundclosefill text-grey" bindtap="cancel" wx:if="{{searching}}"></text>
+    </view>
+    <view class="" bindtap="back">
+        取消
+    </view>
+</view>
+
+<view class="his-box" wx-if="{{!searching}}">
+    <view class="" wx:if="{{!his[0]}}">
+        还没搜索过哦
+    </view>
+</view>
+
+<view class="" wx-if="{{searching}}">
+	 <view wx-if="{{isHas}}" style="font-size: 24px;">
+        {{auditData.phone}}
+        {{auditData.type}}
+     </view>
+     <view wx-if="{{auditData.keyNum==1}}">
+         审核通过可以通过官网用该手机号 进行注册
+     </view>
+	  <view style="text-align:center;margin-top:30rpx;">-没有更多了-</view>
+</view>

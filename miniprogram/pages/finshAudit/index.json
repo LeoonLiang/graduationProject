@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+	  "msgg-cmp":"/components/msg/msg"
+  },
+	"navigationStyle": "custom"
+	
+}

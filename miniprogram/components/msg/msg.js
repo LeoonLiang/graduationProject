@@ -115,6 +115,10 @@ Component({
             type: String,
             value: ''
         },
+        url: {
+            type: String,
+            value: '../../pages/myOrder/index'
+        },
         extClass: {
             type: String,
             value: ''

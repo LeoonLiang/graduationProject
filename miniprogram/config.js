@@ -1,5 +1,6 @@
 const config = {
-    api_base_url:'http://leoon.utools.club/api/v1'
+    api_base_url:'https://leoon.utools.club/api/v1',
+    imgBase: 'https://leoon.utools.club'
 }
 
 export {

@@ -7,8 +7,6 @@
     <el-menu
       default-active="2"
       class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
       background-color="#303133"
       text-color="#fff"
       active-text-color="#409EFF"
@@ -37,6 +35,10 @@
           <span slot="title">赛事管理</span>
         </el-menu-item>
       </router-link>
+        <el-menu-item index="4" @click="loginOut">
+          <i class="el-icon-menu"></i>
+          <span slot="title">退出</span>
+        </el-menu-item>
 
     </el-menu>
   </div>
@@ -45,8 +47,10 @@
 <script>
 export default {
   methods: {
-    handleOpen(key, keyPath) {},
-    handleClose(key, keyPath) {}
+   loginOut() {
+     localStorage.removeItem('token')
+     this.$router.push('/login')
+   }
   }
 };
 </script>

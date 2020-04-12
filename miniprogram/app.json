@@ -9,12 +9,15 @@
 		"pages/my/index",
 		"pages/location/index",
 		"pages/finshOrder/index",
+		"pages/finshAudit/index",
 		"pages/myOrder/index",
 		"pages/match/index",
 		"pages/matchApply/index",
 		"pages/matchApplySign/index",
 		"pages/comment/index",
-		"pages/myComment/index"
+		"pages/myComment/index",
+		"pages/beShoper/index",
+		"pages/checkAudit/index"
 	],
 	"window": {
 		"navigationBarTitleText": "场地预订",
