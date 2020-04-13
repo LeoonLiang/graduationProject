@@ -1,5 +1,5 @@
 <template>
-   <div class="login">
+   <div class="signup">
         <!--
           el-form 表示使用了 表单组件
     
@@ -7,7 +7,7 @@
           可以在 js 中通过 this.$refs.loginForm 来获取到当前组件或这DOM对象
         -->
        
-        <el-form class="login-form" ref="loginForm" :model="loginForm" label-width="80px" :rules="rules" :label-position="labelPosition">
+        <el-form class="signup-form" ref="loginForm" :model="loginForm" label-width="80px" :rules="rules" :label-position="labelPosition">
             <div class="title">
                 场馆预订店家平台
               </div>
@@ -21,8 +21,8 @@
           <el-form-item label="昵称" prop="nickname">
             <el-input v-model="loginForm.nickname"></el-input>
           </el-form-item>
-          <el-form-item label="手机号" prop="account">
-            <el-input v-model="loginForm.account"></el-input>
+          <el-form-item label="手机号" prop="phonenum">
+            <el-input v-model="loginForm.phonenum"></el-input>
           </el-form-item>
           <el-form-item label="密码" prop="password">
             <!-- 给组件绑定事件的时候，如果发现绑定的事件不生效，那么，可以添加 .native 修饰符 -->
@@ -48,7 +48,7 @@ export default {
         return {
           loginForm: {
             nickname: '',
-            account: '',
+            phonenum: '',
             password: '',
             password1: '',
             type:102
@@ -56,7 +56,7 @@ export default {
           store,
           // 表单验证规则：
           rules: {
-            account: [
+            phonenum: [
               // required 表示为必填项
               // message 验证失败时的提示
               // trigger 表示什么时候触发表单验证
@@ -110,36 +110,15 @@ export default {
         async handleLogin () {
           const url = '/v1/user/register'
           // 使用 await 等待这个异步请求成功：
-          try{
-            const res = await this.$http.post(url, this.loginForm)
-            if (res.status === 200) {
-              // 成功：
-              const data = res.data
-              // console.log(data)
-              // localStorage.setItem('token', data.token)
-              store.commit('saveToken', data)
-              localStorage.setItem('token', data.token)
-              localStorage.setItem('uid', data.uid)
-              if(data.exist===1) {
-                this.$router.push('/')
-              }else {
-                this.$router.push('/newbusiness')
-              }
-              this.$message({
-                message: '登录成功',
-                type: 'success',
-                duration: 500
-              })
-            }
+          const res = await this.$http.post(url, this.loginForm)
+          if (res.data.error_code === 200) {
+            // 成功：
+            this.$router.push('/login')
+            this.$message.success(res.data.msg)
+          } else  {
+            this.$message(res.data.msg)
           }
-          catch(e){
-            this.$message({
-              message: '登录失败：用户名或密码错误',
-              type: 'error',
-              duration: 1000
-            })
-          }
-          // 从 res 中获取到成功后的数据:
+        
         },
     
         /**
@@ -153,9 +132,12 @@ export default {
 </script>
 
 <style>
-    .login {
+    .signup {
     height: 100%;
     background-color: #2d434c;
+    display:flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .title {
@@ -170,19 +152,23 @@ export default {
     transform: translateX(-50%);
   }
 
-  .login-form {
+  .signup .el-form-item {
+    margin-bottom: 14px
+  }
+
+  .signup .el-form-item__content {
+    line-height: 24px
+  }
+
+  .signup .signup-form {
     position: absolute;
-    top: 50%;
-    left: 50%;
     width: 500px;
     padding: 35px;
-    margin-top: -120px;
-    margin-left: -250px;
     border-radius: 12px;
     background-color: #fff;
   }
 
-  .login-form .el-button {
+  .signup-form .el-button {
     width: 100%;
   }
 </style>
