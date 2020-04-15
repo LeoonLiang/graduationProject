@@ -7,13 +7,18 @@ const { Audit } = require('../../models/user')
 
 router.get("/check", async (ctx) => {
     const { telphone } = ctx.request.query
-    console.log(telphone)
     const auditData = await Audit.findOne({
         where:{
             telphone
         }
     })
-    console.log(auditData)
+    ctx.body = {
+        auditData
+    }
+})
+
+router.get("/checkAll", async (ctx) => {
+    const auditData = await Audit.findAll()
     ctx.body = {
         auditData
     }
@@ -21,7 +26,6 @@ router.get("/check", async (ctx) => {
 
 router.post("/handAudit", async (ctx) => {
     const { name,idCard,phone, imgUrl0, imgUrl1, imgUrl2, imgUrl3 } = ctx.request.body
-    console.log(ctx.request.body)
     const res = await Audit.create({
         telphone: parseInt(phone),
         name,
@@ -31,6 +35,18 @@ router.post("/handAudit", async (ctx) => {
         idcardBack:  imgUrl2,
         idcardHand: imgUrl3,
         type: 0
+    })
+    success("创建成功");  
+})
+
+router.post("/audit", async (ctx) => {
+    const { type, id } = ctx.request.body
+    const audit_type = await Audit.update({
+        type
+    },{
+        where:{
+            id    
+        }
     })
     success("创建成功");  
 })
