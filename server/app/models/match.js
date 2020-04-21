@@ -24,10 +24,7 @@ Match.init({
     match_type: Sequelize.INTEGER,
     memberNum: Sequelize.INTEGER,
     match_imgURL: {
-        type:Sequelize.STRING(256),
-        get(){
-            return "http://"+this.getDataValue('business_imgURL');
-        }
+        type:Sequelize.STRING(256)
     },
     uid: Sequelize.INTEGER
 

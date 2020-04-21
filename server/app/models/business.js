@@ -55,10 +55,7 @@ Business.init({
     location: Sequelize.STRING(128),
     city: Sequelize.STRING(16),
     business_imgURL: {
-        type:Sequelize.STRING(256),
-        get(){
-            return "http://"+this.getDataValue('business_imgURL');
-        }
+        type:Sequelize.STRING(256)
     },
     uid: Sequelize.INTEGER
 

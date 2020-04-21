@@ -1,7 +1,7 @@
 <!--pages/placeDetail/index.wxml-->
 <!-- <topbar-cmp placeName="{{placeName}}"></topbar-cmp> -->
 <view class="title">场馆详情</view>
-<image class="banner" src="{{placeData.business_imgURL}}" style="width: 750rpx;height:375rpx;"></image>
+<image class="banner" src="{{imgBase + placeData.business_imgURL}}" style="width: 750rpx;height:375rpx;"></image>
 <view class="content">
     <view class="main">
         <view class="placeName">{{placeData.business_name}}</view>

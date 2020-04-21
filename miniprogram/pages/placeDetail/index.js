@@ -1,4 +1,5 @@
 // pages/placeDetail/index.js
+import {config} from '../../config'
 const {
     HTTP
 } = require('../../util/http')
@@ -9,6 +10,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        imgBase: config.imgBase,
         pid: 1,
         placeData: {
             id: "2",

@@ -30,7 +30,7 @@ Component({
 					location:loca
 				},
 				success: (res) => {
-			
+					console.log(res.res)
 					this.setData({
 						placeData:res.res
 					})

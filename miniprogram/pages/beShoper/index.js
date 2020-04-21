@@ -47,7 +47,7 @@ Page({
  
         // 上传图片
         wx.uploadFile({                                  
-          url: 'http://leoon.utools.club/api/v2/img/upload',                  //服务器接口地址
+          url: 'https://leoon.utools.club/api/v2/img/upload',                  //服务器接口地址
           filePath: filePath,                            
           name: 'file',
  

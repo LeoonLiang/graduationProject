@@ -1,4 +1,5 @@
 // components/place/index.js
+import {config} from '../../config.js'
 Component({
     /**
      * 组件的属性列表
@@ -10,7 +11,7 @@ Component({
                 this.setData({
                     pid: newVal.pid,
                     placeName: newVal.placeName,
-					business_imgURL: newVal.business_imgURL,
+					business_imgURL: this.data.baseImgUrl + newVal.business_imgURL,
                     city: newVal.city,
                     distance: newVal.distance,
                     score: newVal.score,
@@ -24,6 +25,7 @@ Component({
      * 组件的初始数据
      */
     data: {
+        baseImgUrl: config.imgBase,
         pid: 1,
         placeName: "店名",
 		business_imgURL: "../images/place1.jpg",

@@ -3,6 +3,7 @@
 <view class="matchItem">
   <view class="matchItem_top">
     <view class="matchItem_img">
+      <image class="banner" src="{{imgBase + matchData.match_imgURL}}" style="width: 750rpx;height:375rpx;"></image>
       <text class="matchItem_img_status">报名中</text>
     </view>
     <view class="matchItem_info">

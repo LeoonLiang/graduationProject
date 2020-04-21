@@ -1,4 +1,5 @@
 // components/matchItem/index.js
+import {config} from '../../config'
 Component({
 
   properties: {
@@ -14,7 +15,7 @@ Component({
    * 页面的初始数据
    */
   data: {
-
+    imgBase: config.imgBase
     // pid: 1,
     // status: 1,
     // title: '热个人热无法v儿科v嗯',
