@@ -27,7 +27,6 @@ router.get("/myMatch", async (ctx) => {
 
 router.post("/addMatch", async (ctx) => {
     const { uid,phone,match_name, matchTime, describe, address, match_imgURL } = ctx.request.body
-    // console.log(ctx.request.body)
     const res = await Match.create({
         uid,
         phone,

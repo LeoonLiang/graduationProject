@@ -52,13 +52,10 @@ class WXTemMsg {
                 }
             }
           }
-          console.log('requestData', requestData)
         const token = await axios.get(`https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxbc2136fc045a47e7&secret=973cb832139d2ecf07c3ffac91e5447f`
             )
-        console.log('token', token.data.access_token)
         const result = await axios.post(`https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token=${token.data.access_token}`, requestData)
 
-        console.log('result', result.data)
     }
 }
 

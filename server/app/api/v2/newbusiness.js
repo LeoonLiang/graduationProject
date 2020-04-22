@@ -25,7 +25,6 @@ router.post('/business', async (ctx) => {
 
 router.post("/project", async (ctx) => {
     const {bid,name,price,describe} = ctx.request.body
-    console.log(ctx.request.body)
     await Business_project.create({
         project_name:name,
         price,

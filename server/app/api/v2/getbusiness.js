@@ -24,7 +24,6 @@ router.get("/info", async (ctx) => {
     })
 
     const orderData = await newOrder(bid.dataValues.id)
-//    console.log(businessData)
     ctx.body={
         businessData,
         orderData

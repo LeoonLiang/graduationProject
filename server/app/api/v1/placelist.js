@@ -17,11 +17,6 @@ router.get("/recommendedList", async (ctx) => {
             city:location+"市"
         }
     })
-    console.log(res)
-    // for (let i = 0; i < res.length; i++) {
-    //     res[i].dataValues.placeImg =  "http://"+res[i].dataValues.placeImg;
-    //     placeData.push(res[i].dataValues)
-    // }
     ctx.body={
         res
     }

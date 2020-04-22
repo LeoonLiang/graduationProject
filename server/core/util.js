@@ -92,10 +92,8 @@ const prepay = async ({openid,orderId,desc,totalPrice,spbill_create_ip})=> {
         if(prepay_id){
             res = getClientPayConfig(prepay_id)
         }
-        // console.log(res);
     }catch(e){
         res = e;
-        console.log(e);
     }
     return res;
 }
@@ -107,13 +105,12 @@ const prepay = async ({openid,orderId,desc,totalPrice,spbill_create_ip})=> {
  */ 
 const wechatPay = (obj)=>{
     let xml = json2xml(obj);
-    console.log(xml)
     return new Promise((resolve,reject)=>{
         request({method:'POST',url:  'https://api.mch.weixin.qq.com/pay/unifiedorder',body: xml},(err,res, body)=>{
             if(err){
                 reject(err);
             }else{
-                console.log(body);
+
                 let obj = parseXml(body).xml;
                 resolve(obj);
             }
@@ -127,7 +124,6 @@ const wechatPay = (obj)=>{
  * @param {String} str 
  */
 const getSign = (str)=>{
-    console.log(str)
     let hash = crypto.createHash('md5').update(str,'utf8');
     return hash.digest('hex').toUpperCase();
 }

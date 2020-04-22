@@ -11,7 +11,6 @@ const router = new Router({
 
 router.post('/upload', upload.single('file'),async (ctx) => {
     // 省去校验...
-    console.log(ctx.request.headers.host)
     ctx.body = {
         filename: '/images/'+ctx.req.file.filename//返回文件名
     }
@@ -28,19 +27,10 @@ router.post('/delete',async (ctx) => {
         if (fs.existsSync(delPath)) {
             fs.unlinkSync(delPath);
         } else {
-            console.log('inexistence path：', delPath);
         }
     } catch (error) {
-        console.log('del error', error);
     }
     success("删除成功")
 })
-
-// router.get('/:args',async (ctx) => {
-//     // 省去校验...
-//     let resUrl = ctx.req.url.split("/");
-//     res.sendFile(__dirname + '/statics/uploads/' + resUrl[resUrl.length - 1]);
-    
-// })
 
 module.exports = router 

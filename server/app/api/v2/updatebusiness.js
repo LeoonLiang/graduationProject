@@ -39,7 +39,6 @@ router.post("/project", async (ctx)=>{
 
 router.post("/ordertype", async (ctx)=>{
     const {order_id} = ctx.request.body
-    console.log(order_id,ctx.request.body)
     const res = await Order.update({
         order_type:2
     },{

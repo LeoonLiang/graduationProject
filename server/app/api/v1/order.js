@@ -35,9 +35,6 @@ router.post("/commit", async (ctx) => {
         book_date,
         telphone
     })
-    console.log(open_id.dataValues)
-
-    // console.log(res)
     success("下单成功")
 })
 
@@ -86,7 +83,6 @@ router.post("/comment", async (ctx) => {
     })
 
   
-    // console.log(res)
     success("评论成功")
 })
 
@@ -107,7 +103,6 @@ router.get("/mycomment", async (ctx) => {
         })
         res[i].dataValues.business_name=business_name.business_name
     }
-    // console.log(res)
     ctx.body={
         res
     }
@@ -120,8 +115,6 @@ router.post("/delcomment", async (ctx) => {
             id
         }
     })
- 
-    // console.log(res)
     success("删除成功")
 })
 
