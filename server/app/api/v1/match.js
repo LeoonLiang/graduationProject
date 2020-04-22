@@ -25,6 +25,20 @@ router.get("/myMatch", async (ctx) => {
     }
 })
 
+router.get("/matchDetail",async (ctx) => {
+    const { mid } = ctx.request.query
+    const MatchData = await Match.findOne({
+        where:{
+            id:mid
+        }
+    })
+   
+    ctx.body = {
+        MatchData
+    }
+    
+})
+
 router.post("/addMatch", async (ctx) => {
     const { uid,phone,match_name, matchTime, describe, address, match_imgURL } = ctx.request.body
     const res = await Match.create({

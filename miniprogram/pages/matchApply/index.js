@@ -1,18 +1,39 @@
 // pages/matchApply/index.js
+import {config} from '../../config'
+const {
+	HTTP
+} = require('../../util/http')
+var http = new HTTP()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    imgBase: config.imgBase,
+    matchData: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+			mid:options.mid
+    })
+    http.request({
+			url: '/Match/matchDetail',
+			data: {
+				mid: this.data.mid
+			},
+			success: res => {
+        this.setData({
+          matchData:res.MatchData
+        })
+			}
+		})
+    
   },
 
   /**

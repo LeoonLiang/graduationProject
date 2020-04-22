@@ -1,13 +1,13 @@
 <!--pages/matchApply/index.wxml-->
-<image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg" style="width:100%"></image>
+<image src="{{imgBase + matchData.match_imgURL}}" style="width:100%"></image>
 
 <view class="details">
     <view class="item">
-        <view class="tittle">环上海外滩自行车大赛</view>
+        <view class="tittle">{{matchData.match_name}}</view>
     </view>
     <view class="item">
         <view class="location">
-            <text class="cuIcon-locationfill"></text>上海外滩</view>
+            <text class="cuIcon-locationfill"></text>{{matchData.location}}</view>
     </view>
     <view class="item">
         <view class="caption">报名截止:</view>
@@ -16,12 +16,12 @@
     <view class="item">
         <view class="caption">活动时间：</view>
         <view class="cont">
-            <text>2020-06-21</text>-
-            <text>2020-10-21</text>
+            <text>{{matchData.match_start_time}}</text>-
+            <text>{{matchData.match_end_time}}</text>
         </view>
     </view>
 	 <view class="item">
-        <view class="caption">联系电话：13415632123</view>
+        <view class="caption">联系电话：{{matchData.telphone}}</view>
         <view class="cont">
             <text></text>-
             <text></text>

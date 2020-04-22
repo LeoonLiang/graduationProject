@@ -1,5 +1,5 @@
 <!--components/matchItem/index.wxml-->
-<navigator url="/pages/matchApply/index">
+<navigator url="/pages/matchApply/index?mid={{matchData.id}}">
 <view class="matchItem">
   <view class="matchItem_top">
     <view class="matchItem_img">
