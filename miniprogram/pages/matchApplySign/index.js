@@ -1,4 +1,8 @@
 // pages/matchApplySign/index.js
+import {config} from '../../config'
+const { HTTP } = require('../../util/http')
+var http = new HTTP()
+
 Page({
 
   /**
@@ -6,6 +10,7 @@ Page({
    */
   data: {
     //步骤条
+    show: false,
     numList: [{
       name: '选择赛事项目'
     }, {
@@ -20,5 +25,28 @@ Page({
       })
     },
     isCard: false
-  }
+  },
+  onLoad: function (options) {
+    this.setData({
+			mid:options.id
+    })
+	},
+
+  formSubmit: function(e) {
+    let form = {...e.detail.value, mid: this.data.mid, uid: wx.getStorageSync("uid")}
+		http.request({
+			url:'/Match/contest',
+			method:'POST',
+			data:form,
+			success:(res)=>{
+        this.setData({
+          show: true
+        })
+				wx.navigateBack({
+          delta: 2
+        })
+			}
+		})
+
+	}
 })

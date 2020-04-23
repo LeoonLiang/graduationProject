@@ -35,6 +35,12 @@
           <span slot="title">赛事管理</span>
         </el-menu-item>
       </router-link>
+      <router-link to="/money">
+        <el-menu-item index="5">
+          <i class="el-icon-menu"></i>
+          <span slot="title">资金管理</span>
+        </el-menu-item>
+      </router-link>
         <el-menu-item index="4" @click="loginOut">
           <i class="el-icon-menu"></i>
           <span slot="title">退出</span>

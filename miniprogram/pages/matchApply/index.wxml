@@ -31,9 +31,9 @@
 
 <view class="introduce">
     <view class="introduce_title">活动介绍</view>
-    <view class="introduce_content">自行车大赛哦</view>
+    <view class="introduce_content">{{matchData.introdution}}</view>
 </view>
 
-<navigator url="/pages/matchApplySign/index">
+<navigator url="/pages/matchApplySign/index?id={{matchData.id}}">
     <view class="apply">我要报名</view>
 </navigator>

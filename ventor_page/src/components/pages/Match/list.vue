@@ -101,9 +101,7 @@ export default {
   methods: {
 		uploadsuc(response, file, fileList) {
         // console
-        console.log("打印",response)
         this. addform.match_imgURL=response.filename
-      console.log(this.addform.business_imgURL)
     },
     async removeImg(file, fileList) {
       const url = 'v2/img/delete'
@@ -155,7 +153,6 @@ export default {
       const res = await this.$http.get(url, { params })
       if (res.status === 200) {
 				this.matchData = [...res.data.matchData]
-				console.log(	this.matchtData)
       }
     },
     async editProject() {
@@ -201,8 +198,10 @@ export default {
   },
   created: async function () {
     this.getMatch();
-
   },
+  activated() {
+    this.getMatch();
+  }
 }
 
 </script>

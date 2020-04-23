@@ -215,14 +215,84 @@ Order.init({
     tableName: 'Order'
 })
 
+class Money extends Model {
+}
 
+
+Money.init({
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    nowMoney: {
+        type: Sequelize.BIGINT(255),
+        defaultValue:0
+    },
+    ingMoney: {
+        type: Sequelize.BIGINT(255),
+        defaultValue:0
+    },
+    edMoney: {
+        type: Sequelize.BIGINT(255),
+        defaultValue:0
+    },
+    uid: Sequelize.INTEGER,
+    bid: Sequelize.INTEGER,
+    createdAt: {
+        type: Sequelize.DATE,
+        get() {
+            return moment(this.getDataValue('createdAt')).format('YYYY-MM-DD hh:mm:ss')
+        }
+    }
+
+}, {
+    sequelize,
+    tableName: 'Money'
+})
+
+
+class MoneyRecord extends Model {
+}
+
+MoneyRecord.init({
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    ingMoney: {
+        type: Sequelize.BIGINT(255),
+        defaultValue:0
+    },
+    moneyType: {
+        type: Sequelize.BIGINT(255),
+        defaultValue:0
+    },
+    telphone: Sequelize.STRING(16),
+    uid: Sequelize.INTEGER,
+    bid: Sequelize.INTEGER,
+    createdAt: {
+        type: Sequelize.DATE,
+        get() {
+            return moment(this.getDataValue('createdAt')).format('YYYY-MM-DD hh:mm:ss')
+        }
+    }
+
+}, {
+    sequelize,
+    tableName: 'MoneyRecord'
+})
 Order.belongsTo(User, { foreignKey: 'uid' })
 // User.hasOne(Comment,{foreignKey:'uid'})
 Comment.belongsTo(User, { foreignKey: 'uid' })
+
 
 module.exports = {
     User,
     Comment,
     Audit,
-    Order
+    Order,
+    Money,
+    MoneyRecord
 }

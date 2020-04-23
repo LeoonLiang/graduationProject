@@ -27,6 +27,7 @@ export default {
 	},
 	methods: {
 		acceptor(key, data, state) {
+			console.log(key, data)
 			this.data = { ...data }
 			this.state = { ...state }
 			this.componentId = key

@@ -9,6 +9,7 @@ import IndexPage from '@/components/pages/Index/index.vue'
 import PMpage from '@/components/pages/PMpage/index.vue'
 import Order from '@/components/pages/Order/index.vue'
 import Match from '@/components/pages/Match/index.vue'
+import Money from '@/components/pages/money'
 
 
 
@@ -40,6 +41,11 @@ const router = new Router({
           path:'Match',
           name:'Match',
           component:Match
+        },
+        {
+          path:'Money',
+          name:'Money',
+          component:Money
         }
       ]
     },

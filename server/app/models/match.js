@@ -45,8 +45,9 @@ Match_member.init({
     },
     member_name: Sequelize.STRING,
     telphone: Sequelize.STRING(16),
+    idCard: Sequelize.STRING(20),
+    remark: Sequelize.TEXT,
     ranking: Sequelize.INTEGER,
-    mid: Sequelize.INTEGER,
     uid: Sequelize.INTEGER,
 
 }, {
@@ -55,8 +56,11 @@ Match_member.init({
     tableName: 'Match_member'
 })
 
-Match_member.belongsTo(Match, { foreignKey: 'bid' })
-Match.hasOne(Match_member, { foreignKey: 'bid' })
+
+Match_member.belongsTo(Match, { foreignKey: 'mid' })
+Match_member.sync({ alter: true })
+
+// Match.hasOne(Match_member, { foreignKey: 'mid' })
 module.exports = {
     Match,
     Match_member

@@ -39,11 +39,24 @@ router.get("/matchDetail",async (ctx) => {
     
 })
 
+router.get("/matchMember",async (ctx) => {
+    const { mid } = ctx.request.query
+    const MatchData = await Match_member.findAll({
+        where:{
+            mid
+        }
+    })
+   
+    ctx.body = {
+        MatchData
+    }
+    
+})
 router.post("/addMatch", async (ctx) => {
     const { uid,phone,match_name, matchTime, describe, address, match_imgURL } = ctx.request.body
     const res = await Match.create({
         uid,
-        phone,
+        telphone: phone,
         match_name,
         match_start_time: matchTime[0],
         match_end_time: matchTime[1],
@@ -52,6 +65,32 @@ router.post("/addMatch", async (ctx) => {
         match_type: 0,
         memberNum: 0,
         match_imgURL
+    })
+    success("创建成功");  
+})
+
+router.post("/contest", async (ctx) => {
+    const { uid, mid, member_name, telphone, remark, idCard } = ctx.request.body
+    const res = await Match_member.create({
+        uid,
+        member_name,
+        telphone,
+        idCard,
+        remark,
+        mid
+    })
+    const oldnum = await Match.findOne({
+        attributes: ['memberNum'],
+        where:{
+            id:mid
+        }
+    })
+    const newnum = await Match.update({
+        memberNum: oldnum.dataValues.memberNum + 1
+    },{
+        where:{
+            id: mid    
+        }
     })
     success("创建成功");  
 })

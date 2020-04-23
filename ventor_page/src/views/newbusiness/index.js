@@ -66,10 +66,7 @@ export default {
       })
     },
     uploadsuc(response, file, fileList) {
-        // console
-        console.log("打印",response)
         this. newBusinessForm.business_imgURL=response.filename
-      console.log(this.newBusinessForm.business_imgURL)
     },
     async removeImg(file, fileList) {
       const url = 'v2/img/delete'
