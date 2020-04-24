@@ -84,7 +84,7 @@ export default {
       moneyData: {
           nowMoney: 0,
           ingMoney: 0,
-          ingMoney: 0
+          edMoney: 0
       }
     };
   },

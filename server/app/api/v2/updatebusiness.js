@@ -108,4 +108,64 @@ router.post("/reWithdraw", async (ctx)=>{
     })
     success("申请成功", 200)
 })
+
+router.post("/confirmWithdraw", async (ctx)=>{
+    const {id} = ctx.request.body
+    const moneyRecord = await MoneyRecord.findOne({
+        where: {
+            id
+        }
+    })
+    const money = await Money.findOne({
+        where: {
+            uid: moneyRecord.dataValues.uid
+        }
+    })
+    await MoneyRecord.update({
+        moneyType: 1
+    },{
+        where:{
+            id    
+        }
+    })
+    await Money.update({
+        ingMoney: money.dataValues.ingMoney - parseFloat(moneyRecord.dataValues.ingMoney),
+        edMoney: money.dataValues.edMoney + parseFloat(moneyRecord.dataValues.ingMoney),
+    },{
+        where:{
+            uid: moneyRecord.dataValues.uid   
+        }
+    })
+    success("提现成功", 200)
+})
+
+router.post("/failWithdraw", async (ctx)=>{
+    const {id} = ctx.request.body
+    const moneyRecord = await MoneyRecord.findOne({
+        where: {
+            id
+        }
+    })
+    const money = await Money.findOne({
+        where: {
+            uid: moneyRecord.dataValues.uid
+        }
+    })
+    await MoneyRecord.update({
+        moneyType: 2
+    },{
+        where:{
+            id    
+        }
+    })
+    await Money.update({
+        ingMoney: money.dataValues.ingMoney - parseFloat(moneyRecord.dataValues.ingMoney),
+        nowMoney: money.dataValues.nowMoney + parseFloat(moneyRecord.dataValues.ingMoney),
+    },{
+        where:{
+            uid: moneyRecord.dataValues.uid   
+        }
+    })
+    success("拒绝成功", 200)
+})
 module.exports = router 

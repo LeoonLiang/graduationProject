@@ -53,7 +53,7 @@ router.post("/withdraw", async (ctx) => {
         success("请输入正确的金额", 201);
     }
     if (!telphone) {
-        success("手机号不能为空", 201);        
+        success("手机号不能为空", 201);
     }
 
     await MoneyRecord.create({

@@ -4,7 +4,7 @@ const router = new Router({
     prefix: '/api/v2/get'
 });
 const { Business, Business_project } = require('../../models/business')
-const { Order, Money, MoneyRecord } = require('../../models/user')
+const { Order, Money, MoneyRecord, User } = require('../../models/user')
 // const { Business_project } = require('../../models/business_project')
 
 
@@ -68,6 +68,55 @@ router.get("/memberRecord", async (ctx) => {
     ctx.body={
         recordData,
         moneyData
+    }
+})
+
+router.get("/adminRecord", async (ctx) => {
+    const recordData = await MoneyRecord.findAll({
+        where: {
+            moneyType: 0
+        }
+    })
+    const moneyData = await Money.findAll()
+    const userData = await User.findAll()
+    const storeData = await Business.findAll()
+
+    for(let i=0;i<recordData.length;i++) {
+        for(let j=0; j < userData.length;j++) {
+            if(userData[j].dataValues.id === recordData[i].dataValues.uid) {
+                recordData[i].dataValues = {...recordData[i].dataValues, nickname: userData[j].dataValues.nickname}
+                break;
+            }
+        }
+        for(let k=0; k < storeData.length;k++) {
+            if(storeData[k].dataValues.uid === recordData[i].dataValues.uid) {
+                recordData[i].dataValues = {...recordData[i].dataValues, business_name: storeData[k].dataValues.business_name}
+                break;
+            }
+        }
+    }
+    var money = {
+        nowMoney: 0,
+        ingMoney: 0,
+        edMoney: 0
+    }
+    for(let i=0;i<moneyData.length;i++) {
+        if (i = 0) {
+            money = {
+                nowMoney: moneyData[i].dataValues.nowMoney,
+                ingMoney: moneyData[i].dataValues.ingMoney,
+                nedMoney: moneyData[i].dataValues.nedMoney,
+            }
+        } else {
+            money.nowMoney +=  moneyData[i].dataValues.nowMoney
+            money.ingMoney +=  moneyData[i].dataValues.ingMoney
+            money.edMoney +=  moneyData[i].dataValues.edMoney
+        }
+    }
+
+    ctx.body= {
+        recordData,
+        money
     }
 })
 
