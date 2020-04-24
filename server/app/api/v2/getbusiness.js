@@ -72,7 +72,6 @@ router.get("/memberRecord", async (ctx) => {
 })
 
 router.get("/adminRecord", async (ctx) => {
-    console.log('带用了')
     const recordData = await MoneyRecord.findAll({
         where: {
             moneyType: 0
@@ -101,17 +100,17 @@ router.get("/adminRecord", async (ctx) => {
         ingMoney: 0,
         edMoney: 0
     }
-    for(let i=0;i<moneyData.length;i++) {
-        if (i = 0) {
+    for(let o=0;o<moneyData.length;o++) {
+        if (o === 0) {
             money = {
-                nowMoney: moneyData[i].dataValues.nowMoney,
-                ingMoney: moneyData[i].dataValues.ingMoney,
-                nedMoney: moneyData[i].dataValues.nedMoney,
+                nowMoney: moneyData[o].dataValues.nowMoney,
+                ingMoney: moneyData[o].dataValues.ingMoney,
+                edMoney: moneyData[o].dataValues.edMoney,
             }
         } else {
-            money.nowMoney +=  moneyData[i].dataValues.nowMoney
-            money.ingMoney +=  moneyData[i].dataValues.ingMoney
-            money.edMoney +=  moneyData[i].dataValues.edMoney
+            money.nowMoney +=  moneyData[o].dataValues.nowMoney
+            money.ingMoney +=  moneyData[o].dataValues.ingMoney
+            money.edMoney +=  moneyData[o].dataValues.edMoney
         }
     }
 

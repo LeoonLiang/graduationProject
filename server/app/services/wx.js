@@ -39,10 +39,10 @@ class WXTemMsg {
                     "value": data.project_name
                 },
                 "time1": {
-                    "value": '2019年10月1日 15:01'
+                    "value": data.book_date
                 },
                 "thing3": {
-                    "value": "莱姿时刻"
+                    "value": data.businessName
                 },
                 "phone_number4": {
                     "value": data.telphone

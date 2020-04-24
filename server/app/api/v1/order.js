@@ -24,7 +24,7 @@ router.post("/commit", async (ctx) => {
         order_type:1
     })
     const businessUid = await Business.findOne({
-        attributes: ['uid'],
+        attributes: ['uid', 'business_name'],
         where: {
             id: bid
         }
@@ -47,10 +47,10 @@ router.post("/commit", async (ctx) => {
             uid: money.dataValues.uid   
         }
     })
-    
     WXTemMsg.temMsg(open_id.dataValues.openid, {
         project_name,
         book_date,
+        businessName: businessUid.dataValues.business_name,
         telphone
     })
     success("下单成功")
