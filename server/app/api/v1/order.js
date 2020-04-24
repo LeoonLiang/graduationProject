@@ -1,6 +1,6 @@
 const Router = require('koa-router')
 const success = require('../../lib/helper')
-const { User, Order, Comment } = require('../../models/user')
+const { User, Order, Comment, Money } = require('../../models/user')
 const { Business } = require('../../models/business')
 const { WXTemMsg } = require('../../services/wx')
 
@@ -23,10 +23,28 @@ router.post("/commit", async (ctx) => {
         order_id:book_date,
         order_type:1
     })
+    const businessUid = await Business.findOne({
+        attributes: ['uid'],
+        where: {
+            id: bid
+        }
+    })
     let open_id = await User.findOne({
         attributes:["openid"],
         where:{
             id:uid
+        }
+    })
+    const money = await Money.findOne({
+        where: {
+            uid: businessUid.dataValues.uid
+        }
+    })
+    await Money.update({
+        nowMoney: money.dataValues.nowMoney + parseFloat(total_price),
+    },{
+        where:{
+            uid: money.dataValues.uid   
         }
     })
     

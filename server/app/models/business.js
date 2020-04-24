@@ -24,17 +24,21 @@ class Business extends Model {
             include: [{
                 model: Business_project,
                 where: {
-                        project_name: {
-                            [Op.like]: '%' + keyword + '%'
-                        }    
-
+                        [Op.or]: [
+                            { 
+                                project_name: {
+                                    [Op.like]: `%${keyword}%`
+                                }
+                            },
+                            sequelize.where(
+                                sequelize.cast(sequelize.col('Business.business_name'), 'char'),
+                                {
+                                    [Op.like]: `%${keyword}%`
+                                }
+                            )
+                        ]
                 }
-            }],
-            // where: {
-            //     business_name: {
-            //         [Op.like]: '%' + keyword + '%'
-            //     }
-            // }
+            }]
         })
         return result
 

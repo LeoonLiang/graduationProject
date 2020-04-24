@@ -90,7 +90,12 @@ export default {
   },
   methods: {
     reWithdraw(row) {
-        this.$http.post('/v2/update/reWithdraw', {
+        this.$confirm("是否重新发起提现","提示",{
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+       this.$http.post('/v2/update/reWithdraw', {
             id: row.id
         }).then((res) => {
             if (res.data.error_code === 200) {
@@ -101,6 +106,12 @@ export default {
                 this.getList()
             }
         })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消操作'
+        });          
+      });
     },
     handleAmountChange() {
         const url = '/v2/get/checkMoney'
@@ -125,7 +136,12 @@ export default {
 			this.$emit('view', key, data, state)
     },
     cancel(row) {
-        this.$http.post('/v2/update/cancelWithdraw', {
+        this.$confirm("是否取消提现","提示",{
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+          this.$http.post('/v2/update/cancelWithdraw', {
             id: row.id
         }).then((res) => {
             if (res.data.error_code === 200) {
@@ -136,6 +152,13 @@ export default {
                 this.getList()
             }
         })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消操作'
+        });          
+      });
+      
     },
     async getList() {
       const url = "/v2/get/memberRecord"
@@ -153,8 +176,14 @@ export default {
       }
     },
     withdraw() {
+        this.$confirm("是否确定提现","提示",{
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
         const data = {
             ...this.form,
+            token: localStorage.getItem('token'),
             uid: localStorage.getItem('uid')
         }
         this.$http.post('/v2/new/withdraw', data)
@@ -179,6 +208,13 @@ export default {
                 });    
             }
             })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消操作'
+        });          
+      });
+       
     }
   },
   created: async function () {

@@ -5,6 +5,7 @@ const router = new Router({
 });
 const {Business,Business_project} = require('../../models/business')
 const {Money, MoneyRecord} = require('../../models/user')
+const {Auth} = require('../../../middlewares/auth')
 
 // const {Business_project} = require('../../models/business')
 
@@ -39,6 +40,7 @@ router.post("/project", async (ctx) => {
 
     success("添加项目成功");
 })
+
 
 router.post("/withdraw", async (ctx) => {
     const {uid,ingMoney,telphone} = ctx.request.body
