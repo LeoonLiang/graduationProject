@@ -72,6 +72,7 @@ router.get("/memberRecord", async (ctx) => {
 })
 
 router.get("/adminRecord", async (ctx) => {
+    console.log('带用了')
     const recordData = await MoneyRecord.findAll({
         where: {
             moneyType: 0

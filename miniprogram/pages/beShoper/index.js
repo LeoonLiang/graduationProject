@@ -8,6 +8,7 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
+		config,
 		imgUrl0:'',
 		imgUrl1:'',
 		imgUrl2:'',
@@ -56,19 +57,19 @@ Page({
 			let num = e.currentTarget.dataset.num
 			if (num == 0) {
 				that.setData({
-					imgUrl0: config.imgBase + res.filename
+					imgUrl0: res.filename
 				  })
 			}else if (num == 1) {
 				that.setData({
-					imgUrl1: config.imgBase + res.filename
+					imgUrl1: res.filename
 				  })
 			}else if (num == 2) {
 				that.setData({
-					imgUrl2: config.imgBase + res.filename
+					imgUrl2: res.filename
 				  })
 			}else if (num == 3) {
 				that.setData({
-					imgUrl3: config.imgBase + res.filename
+					imgUrl3: res.filename
 				  })
 			}
            

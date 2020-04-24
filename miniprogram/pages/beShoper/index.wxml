@@ -20,13 +20,13 @@
 
 		<view class="item">
 		<button bindtap="upImgClick" data-num="0">上传营业执照</button>
-		<image src='{{imgUrl0}}'></image>
+		<image src='{{config.imgBase + imgUrl0}}'></image>
 		<button bindtap="upImgClick" data-num="1">上传身份证正面</button>
-		<image src='{{imgUrl1}}'></image> 
+		<image src='{{config.imgBase + imgUrl1}}'></image> 
 		<button bindtap="upImgClick" data-num="2">上传身份证反面</button>
-		<image src='{{imgUrl2}}'></image> 
+		<image src='{{config.imgBase + imgUrl2}}'></image> 
 		<button bindtap="upImgClick" data-num="3">上传手持身份证</button>
-		<image src='{{imgUrl3}}'></image> 
+		<image src='{{config.imgBase + imgUrl3}}'></image> 
 		</view>
 	</view>
 	<button class="apply" formType="submit">确定提交</button>

@@ -47,10 +47,10 @@ export default {
     data () {
         return {
           loginForm: {
-            nickname: '',
-            phonenum: '',
-            password: '',
-            password1: '',
+            nickname: '老帅篮球馆',
+            phonenum: '13415638577',
+            password: 'lxl981024',
+            password1: 'lxl981024',
             type:102
           },
           store,

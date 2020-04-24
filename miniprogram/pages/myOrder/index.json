@@ -1,5 +1,6 @@
 {
   "usingComponents": {
 	  "order-cmp":"/components/orderItem/index"
-  }
+  },
+  "navigationBarTitleText": "我的订单"
 }
